@@ -136,3 +136,41 @@
         padding: 5px 8px;
     }
 }
+
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        width: 58px;
+        height: 58px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .whatsapp-icon {
+        font-size: 16px;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        width: 58px;
+        height: 58px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .whatsapp-icon,
+    .whatsapp-icon svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    .whatsapp-tooltip {
+        right: 70px;
+        font-size: 13px;
+        padding: 8px 13px;
+    }
+}

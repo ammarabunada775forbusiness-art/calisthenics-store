@@ -26,7 +26,8 @@ const translations = {
         productsPageMini: "متجر وثبة",
         productsPageTitle: "اختر معداتك وابدأ التقدم",
         productsPageText: "تصفح معدات الكاليستنكس المختارة بعناية، واطلب مباشرة عبر واتساب.",
-        footerText: "© 2026 وثبة. جميع الحقوق محفوظة."
+        footerText: "© 2026 وثبة. جميع الحقوق محفوظة.",
+        floatingWhatsapp: "راسلنا"
     },
 
     en: {
@@ -56,6 +57,7 @@ const translations = {
         productsPageMini: "WATHBA Store",
         productsPageTitle: "Choose your gear and start progressing",
         productsPageText: "Browse selected calisthenics equipment and order directly through WhatsApp.",
-        footerText: "© 2026 WATHBA. All rights reserved."
+        footerText: "© 2026 WATHBA. All rights reserved.",
+        floatingWhatsapp: "Chat"
     }
 };
