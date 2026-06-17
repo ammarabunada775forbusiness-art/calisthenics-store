@@ -23,6 +23,9 @@ const translations = {
         needHelpTitle: "مش عارف تختار المنتج المناسب؟",
         needHelpText: "احكِ لنا مستواك وهدفك، ونساعدك تختار الأفضل.",
         askWhatsapp: "اسألنا على واتساب",
+        productsPageMini: "متجر وثبة",
+        productsPageTitle: "اختر معداتك وابدأ التقدم",
+        productsPageText: "تصفح معدات الكاليستنكس المختارة بعناية، واطلب مباشرة عبر واتساب.",
         footerText: "© 2026 وثبة. جميع الحقوق محفوظة."
     },
 
@@ -50,6 +53,9 @@ const translations = {
         needHelpTitle: "Not sure what to choose?",
         needHelpText: "Tell us your level and goal, and we will help you choose.",
         askWhatsapp: "Ask us on WhatsApp",
+        productsPageMini: "WATHBA Store",
+        productsPageTitle: "Choose your gear and start progressing",
+        productsPageText: "Browse selected calisthenics equipment and order directly through WhatsApp.",
         footerText: "© 2026 WATHBA. All rights reserved."
     }
 };

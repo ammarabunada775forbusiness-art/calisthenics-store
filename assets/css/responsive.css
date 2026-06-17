@@ -94,3 +94,28 @@
         padding: 34px 20px;
     }
 }
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 56px 5% 34px;
+    }
+
+    .page-hero span {
+        font-size: 16px;
+    }
+
+    .products-section {
+        padding: 24px 5% 70px;
+    }
+
+    .filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+    }
+}

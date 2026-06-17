@@ -405,3 +405,61 @@ footer {
     background: var(--card);
     border-top: 1px solid var(--border);
 }
+
+.page-hero {
+    padding: 80px 7% 50px;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, color-mix(in srgb, var(--accent) 8%, transparent), transparent 35%),
+        var(--bg);
+}
+
+.page-hero p {
+    color: var(--muted);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.page-hero h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.page-hero span {
+    display: block;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.products-section {
+    padding: 30px 7% 90px;
+}
+
+.filters {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent);
+    color: var(--accent-text);
+    border-color: var(--accent);
+}
