@@ -550,7 +550,49 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.textContent = cartCount();
     });
   }
+  function showCartAddFeedback(quantity = 1) {
+    const toggle = document.querySelector(".wathba-cart-toggle");
+    const badge = document.querySelector(".wathba-cart-count");
 
+    if (toggle) {
+      toggle.classList.remove("wathba-cart-bump");
+      void toggle.offsetWidth;
+      toggle.classList.add("wathba-cart-bump");
+
+      setTimeout(() => {
+        toggle.classList.remove("wathba-cart-bump");
+      }, 700);
+    }
+
+    if (badge) {
+      badge.classList.remove("wathba-cart-count-pop");
+      void badge.offsetWidth;
+      badge.classList.add("wathba-cart-count-pop");
+
+      setTimeout(() => {
+        badge.classList.remove("wathba-cart-count-pop");
+      }, 700);
+    }
+
+    const bubble = document.createElement("div");
+    bubble.className = "wathba-cart-added-bubble";
+    bubble.textContent = txt(`+${quantity} تمت الإضافة`, `+${quantity} Added`);
+
+    if (toggle) {
+      const rect = toggle.getBoundingClientRect();
+      bubble.style.top = `${rect.bottom + 10}px`;
+      bubble.style.left = `${rect.left + rect.width / 2}px`;
+    } else {
+      bubble.style.top = "82px";
+      bubble.style.right = "24px";
+    }
+
+    document.body.appendChild(bubble);
+
+    setTimeout(() => {
+      bubble.remove();
+    }, 1100);
+  }
   function ensureCartShell() {
     const tools = document.querySelector(".wathba-top-tools");
 
@@ -614,9 +656,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     saveCart(items);
 
-    if (options.openCart) {
-      openCart();
-    }
+    saveCart(items);
+    showCartAddFeedback(quantity);
   }
 
   function removeItem(key) {

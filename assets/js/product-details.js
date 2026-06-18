@@ -418,7 +418,7 @@ function bindProductDetailsEvents() {
   if (orderButton) {
     orderButton.addEventListener("click", () => {
       if (window.WathbaCart) {
-        window.WathbaCart.addProduct(product, selectedVariant, 1, { openCart: true });
+        window.WathbaCart.addProduct(product, selectedVariant);
       } else {
         openWhatsApp(product, selectedVariant);
       }

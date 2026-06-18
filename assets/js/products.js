@@ -244,7 +244,7 @@ ${currentLang === "ar" ? "أضف للسلة" : "Add to Cart"}
 
       if (product) {
         if (window.WathbaCart) {
-          window.WathbaCart.addProduct(product, null, 1, { openCart: true });
+          window.WathbaCart.addProduct(product);
         } else {
           openWhatsApp(product);
         }

@@ -1097,3 +1097,106 @@ html[data-wathba-lang="ar"] header.fixed a {
 .wathba-cart-backdrop {
   background: transparent !important;
 }
+
+/* Cart feedback animation */
+
+.wathba-cart-toggle {
+  overflow: visible !important;
+}
+
+.wathba-cart-bump {
+  animation: wathbaCartBump 0.55s ease both;
+}
+
+.wathba-cart-count-pop {
+  animation: wathbaCartCountPop 0.55s ease both;
+}
+
+.wathba-cart-added-bubble {
+  position: fixed;
+  z-index: 1000002;
+  transform: translateX(-50%);
+  background: #25d366;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.28);
+  animation: wathbaCartBubble 1.05s ease both;
+}
+
+@keyframes wathbaCartBump {
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wathbaCartCountPop {
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.45);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wathbaCartBubble {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) scale(0.9);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-16px) scale(0.96);
+  }
+}
+
+/* Clear cart close button */
+
+.wathba-cart-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+}
+
+.wathba-cart-close {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
