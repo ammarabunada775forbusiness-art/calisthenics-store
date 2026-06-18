@@ -130,10 +130,10 @@ header a.active {
    Floating WhatsApp
 ========================= */
 
-body > a.fixed[href*="wa.me"],
-main > a.fixed[href*="wa.me"],
-body > div.fixed a[href*="wa.me"],
-main > div.fixed a[href*="wa.me"] {
+body>a.fixed[href*="wa.me"],
+main>a.fixed[href*="wa.me"],
+body>div.fixed a[href*="wa.me"],
+main>div.fixed a[href*="wa.me"] {
   display: none !important;
 }
 
@@ -406,9 +406,9 @@ html[data-wathba-lang="ar"] .wathba-ar-text {
     overflow: visible !important;
   }
 
-  nav > div,
-  header > nav,
-  header > div {
+  nav>div,
+  header>nav,
+  header>div {
     width: 100% !important;
     padding-left: 18px !important;
     padding-right: 112px !important;
@@ -521,7 +521,7 @@ html[data-wathba-lang="ar"] .wathba-ar-text {
     overflow: hidden !important;
   }
 
-  body:has(#home) #home > .grid {
+  body:has(#home) #home>.grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 38px !important;
@@ -649,5 +649,67 @@ html[data-wathba-lang="ar"] .wathba-ar-text {
 
   body:has(#home) #home #hero-product {
     max-width: 280px !important;
+  }
+}
+
+/* =========================
+   WATHBA HOTFIX
+   Fix desktop hero spacing + hide old Stitch nav actions
+========================= */
+
+/* يخفي أزرار Stitch القديمة داخل النافبار مثل:
+   globe / dark mode / sign up / cart
+   مع إبقاء أزرار WATHBA الجديدة شغالة */
+nav button:not(.wathba-lang-btn):not(.wathba-menu-toggle),
+header button:not(.wathba-lang-btn):not(.wathba-menu-toggle) {
+  display: none !important;
+}
+
+/* إخفاء أي روابط قديمة للـ Sign Up داخل النافبار */
+nav a[href="#"],
+header a[href="#"] {
+  display: none !important;
+}
+
+/* لكن لو اللوجو كان رابط href="#" نخليه ظاهر */
+nav a.wathba-logo,
+header a.wathba-logo,
+nav a.font-headline-md,
+header a.font-headline-md {
+  display: inline-flex !important;
+}
+
+/* إصلاح نزول الهيرو في الصفحة الرئيسية على الديسكتوب */
+@media (min-width: 1025px) {
+  body:has(#home) main {
+    padding-top: 80px !important;
+  }
+
+  body:has(#home) #home {
+    min-height: calc(100vh - 80px) !important;
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  body:has(#home) #home>.grid {
+    align-items: center !important;
+  }
+
+  body:has(#home) #home .md\:col-span-5 {
+    transform: translateY(-18px);
+  }
+
+  body:has(#home) #home .md\:col-span-7 {
+    transform: translateY(-18px);
+  }
+}
+
+/* إصلاح صفحة المنتجات لو صار فيها فراغ زائد فوق */
+@media (min-width: 1025px) {
+  body:not(:has(#home)) main.pt-32 {
+    padding-top: 110px !important;
   }
 }

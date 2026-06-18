@@ -466,6 +466,168 @@
             });
         });
     </script>
+    <!-- WATHBA_HOME_PAGE_TRANSLATION_START -->
+    <script id="wathba-home-page-translation">
+        (function () {
+            const homePageText = {
+                en: {
+                    heroMini: "Performance Redefined",
+                    heroLine1: "ENGINEERED",
+                    heroLine2: "FOR POWER",
+                    heroArabic: "مصمم للقوة",
+                    heroText: "Elite calisthenics equipment crafted for those who demand absolute precision and uncompromising strength.",
+                    browse: "Browse Products",
+                    whatsapp: "WhatsApp",
+
+                    materialLabel: "MATERIAL",
+                    materialValue: "Solid Oak",
+                    capacityLabel: "WEIGHT CAPACITY",
+                    capacityValue: "200KG LIMIT",
+                    finishLabel: "FINISH",
+                    finishValue: "Natural Grip",
+
+                    standardTitle: "THE<br />WATHBA<br />STANDARD",
+                    qualityTitle: "Build Quality",
+                    qualityText: "We utilize aviation-grade steel and hand-picked oak to ensure a lifetime of service.",
+                    designTitle: "Functional Design",
+                    designText: "Engineered with physiological biomechanics in mind to reduce joint stress.",
+                    outdoorTitle: "Home & Outdoor",
+                    outdoorText: "Versatile aesthetics that fit a luxury home setup as well as a rugged outdoor park.",
+                    trusted: "Trusted by Champions",
+
+                    ctaMini: "NEED HELP CHOOSING?",
+                    ctaTitle: "BUILD YOUR SETUP",
+                    ctaText: "Tell us your training level, space, and goal. We will help you choose the right calisthenics equipment through WhatsApp.",
+                    ctaBrowse: "Browse Products",
+                    ctaWhatsapp: "WhatsApp Us"
+                },
+
+                ar: {
+                    heroMini: "أداء بمعيار جديد",
+                    heroLine1: "مصممة",
+                    heroLine2: "للقوة",
+                    heroArabic: "معدات كاليسثنكس احترافية",
+                    heroText: "معدات كاليسثنكس مختارة للاعبين الذين يريدون جودة عالية، ثبات قوي، وتجربة تدريب عملية.",
+                    browse: "تصفح المنتجات",
+                    whatsapp: "واتساب",
+
+                    materialLabel: "الخامة",
+                    materialValue: "خشب ممتاز",
+                    capacityLabel: "تحمل الوزن",
+                    capacityValue: "حتى 200 كغم",
+                    finishLabel: "التشطيب",
+                    finishValue: "قبضة طبيعية",
+
+                    standardTitle: "معيار<br />WATHBA<br />للجودة",
+                    qualityTitle: "جودة التصنيع",
+                    qualityText: "نختار خامات قوية وتصميمات عملية لتناسب التدريب اليومي والاستخدام الطويل.",
+                    designTitle: "تصميم عملي",
+                    designText: "مصممة لتساعدك على التمرين بثبات وتحكم وتقليل الضغط غير الضروري على المفاصل.",
+                    outdoorTitle: "للبيت والخارج",
+                    outdoorText: "معدات مناسبة للبيت، المساحات الخارجية، والنوادي حسب احتياجك.",
+                    trusted: "اختيار الرياضيين الجادين",
+
+                    ctaMini: "محتاج مساعدة بالاختيار؟",
+                    ctaTitle: "جهّز مكان تدريبك",
+                    ctaText: "احكِ لنا مستواك، المساحة المتوفرة، وهدفك، ونساعدك تختار معدات الكاليستنكس المناسبة عبر واتساب.",
+                    ctaBrowse: "تصفح المنتجات",
+                    ctaWhatsapp: "راسلنا واتساب"
+                }
+            };
+
+            function getLang() {
+                return localStorage.getItem("wathbaLang") || "en";
+            }
+
+            function setText(selector, text) {
+                const element = document.querySelector(selector);
+                if (element) element.textContent = text;
+            }
+
+            function setHTML(selector, html) {
+                const element = document.querySelector(selector);
+                if (element) element.innerHTML = html;
+            }
+
+            function applyHomePageTranslation() {
+                const lang = getLang();
+                const t = homePageText[lang];
+
+                setText("#home .md\\:col-span-5 span.text-primary", t.heroMini);
+                setText("#home h1 span:nth-child(1)", t.heroLine1);
+                setText("#home h1 span:nth-child(2)", t.heroLine2);
+                setText("#home h2", t.heroArabic);
+                setText("#home .md\\:col-span-5 > p", t.heroText);
+
+                const heroButtons = document.querySelectorAll("#home .mt-12 button");
+                if (heroButtons[0]) {
+                    heroButtons[0].childNodes[0].textContent = t.browse + " ";
+                }
+                if (heroButtons[1]) {
+                    heroButtons[1].childNodes[0].textContent = t.whatsapp + " ";
+                }
+
+                const dataCards = document.querySelectorAll("#home .glass-panel");
+                if (dataCards[0]) {
+                    dataCards[0].querySelector("span:first-child").textContent = t.materialLabel;
+                    dataCards[0].querySelector("span:last-child").textContent = t.materialValue;
+                }
+                if (dataCards[1]) {
+                    dataCards[1].querySelector("span:first-child").textContent = t.capacityLabel;
+                    dataCards[1].querySelector("span:last-child").textContent = t.capacityValue;
+                }
+                if (dataCards[2]) {
+                    dataCards[2].querySelector("span:first-child").textContent = t.finishLabel;
+                    dataCards[2].querySelector("span:last-child").textContent = t.finishValue;
+                }
+
+                setHTML("#about h2", t.standardTitle);
+
+                const standardCards = document.querySelectorAll("#about .mt-12 > div");
+                if (standardCards[0]) {
+                    standardCards[0].querySelector("h4").textContent = t.qualityTitle;
+                    standardCards[0].querySelector("p").textContent = t.qualityText;
+                }
+                if (standardCards[1]) {
+                    standardCards[1].querySelector("h4").textContent = t.designTitle;
+                    standardCards[1].querySelector("p").textContent = t.designText;
+                }
+                if (standardCards[2]) {
+                    standardCards[2].querySelector("h4").textContent = t.outdoorTitle;
+                    standardCards[2].querySelector("p").textContent = t.outdoorText;
+                }
+
+                const trusted = document.querySelector("#about .absolute.-bottom-10 span:last-child");
+                if (trusted) trusted.textContent = t.trusted;
+
+                setText(".wathba-final-cta p.font-label-caps", t.ctaMini);
+                setText(".wathba-final-cta h2", t.ctaTitle);
+                setText(".wathba-final-cta p.font-body-lg", t.ctaText);
+
+                const ctaLinks = document.querySelectorAll(".wathba-final-cta a");
+                if (ctaLinks[0]) {
+                    ctaLinks[0].childNodes[0].textContent = t.ctaBrowse + " ";
+                }
+                if (ctaLinks[1]) {
+                    ctaLinks[1].childNodes[2].textContent = t.ctaWhatsapp;
+                }
+
+                if (lang === "ar") {
+                    document.querySelector("#home .md\\:col-span-5")?.classList.add("wathba-ar-text");
+                    document.querySelector("#about")?.classList.add("wathba-ar-text");
+                    document.querySelector(".wathba-final-cta")?.classList.add("wathba-ar-text");
+                } else {
+                    document.querySelector("#home .md\\:col-span-5")?.classList.remove("wathba-ar-text");
+                    document.querySelector("#about")?.classList.remove("wathba-ar-text");
+                    document.querySelector(".wathba-final-cta")?.classList.remove("wathba-ar-text");
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", applyHomePageTranslation);
+            document.addEventListener("wathba:langchange", applyHomePageTranslation);
+        })();
+    </script>
+    <!-- WATHBA_HOME_PAGE_TRANSLATION_END -->
     <script src="assets/js/shared-ui.js"></script>
 </body>
 

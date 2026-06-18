@@ -110,12 +110,12 @@ function wathbaApplyLanguage(lang) {
   }
 
   wathbaRenderMobileMenu();
-  wathbaTranslateDesktopNav();
   wathbaRenderWhatsappWidget();
   wathbaRenderFooter();
+  wathbaTranslateDesktopNav();
   wathbaNormalizeLinks();
-  wathbaNormalizeLogo();
   wathbaSetActiveLinks();
+  wathbaNormalizeLogo();
 
   document.dispatchEvent(
     new CustomEvent("wathba:langchange", {
@@ -228,7 +228,25 @@ function wathbaRenderFooter() {
     </footer>
   `;
 }
+function wathbaTranslateDesktopNav() {
+  const navMap = {
+    "index.html": wathbaT("navHome"),
+    "products.html": wathbaT("navProducts"),
+    "about.html": wathbaT("navAbout"),
+    "contact.html": wathbaT("navContact")
+  };
 
+  document.querySelectorAll("nav a, header a").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    const page = href.split("?")[0];
+
+    if (navMap[page]) {
+      link.textContent = navMap[page];
+    }
+  });
+
+  wathbaNormalizeLogo();
+}
 function wathbaSetActiveLinks() {
   const path = window.location.pathname.split("/").pop() || "index.html";
   const normalizedPath = path === "" ? "index.html" : path;
@@ -329,3 +347,153 @@ document.addEventListener("DOMContentLoaded", () => {
   wathbaBindEvents();
   wathbaApplyLanguage(wathbaGetLang());
 });
+
+/* =========================
+   WATHBA HOTFIX
+   Logo + old nav cleanup
+========================= */
+
+(function () {
+  function getLang() {
+    return localStorage.getItem("wathbaLang") || "en";
+  }
+
+  function t(key) {
+    const lang = getLang();
+
+    const dict = {
+      en: {
+        home: "Home",
+        products: "Products",
+        about: "About",
+        contact: "Contact"
+      },
+      ar: {
+        home: "الرئيسية",
+        products: "المنتجات",
+        about: "من نحن",
+        contact: "تواصل معنا"
+      }
+    };
+
+    return dict[lang]?.[key] || dict.en[key];
+  }
+
+  function normalizeLogo() {
+    const logoCandidates = document.querySelectorAll(
+      "nav .font-headline-md, header .font-headline-md, nav a[href='#'], header a[href='#']"
+    );
+
+    logoCandidates.forEach((logo) => {
+      const text = logo.textContent.trim().toLowerCase();
+
+      if (
+        text === "wathba" ||
+        text === "وثبة" ||
+        text === "home" ||
+        text === "الرئيسية"
+      ) {
+        logo.textContent = "WATHBA";
+        logo.classList.add("wathba-logo");
+
+        if (logo.tagName.toLowerCase() === "a") {
+          logo.href = "index.html";
+        }
+      }
+    });
+  }
+
+  function translateNavWithoutTouchingLogo() {
+    const links = document.querySelectorAll("nav a, header a");
+
+    links.forEach((link) => {
+      if (link.classList.contains("wathba-logo")) return;
+      if (link.classList.contains("font-headline-md")) return;
+
+      const href = (link.getAttribute("href") || "").split("?")[0];
+
+      if (href === "index.html") link.textContent = t("home");
+      if (href === "products.html") link.textContent = t("products");
+      if (href === "about.html") link.textContent = t("about");
+      if (href === "contact.html") link.textContent = t("contact");
+    });
+  }
+
+  function hideOldNavActions() {
+    document.querySelectorAll("nav button, header button").forEach((button) => {
+      if (button.classList.contains("wathba-lang-btn")) return;
+      if (button.classList.contains("wathba-menu-toggle")) return;
+
+      button.style.display = "none";
+      button.setAttribute("aria-hidden", "true");
+    });
+
+    document.querySelectorAll("nav a, header a").forEach((link) => {
+      if (link.classList.contains("wathba-logo")) return;
+
+      const text = link.textContent.trim().toLowerCase();
+
+      if (
+        text.includes("sign") ||
+        text.includes("login") ||
+        text.includes("cart") ||
+        text.includes("dark")
+      ) {
+        link.style.display = "none";
+        link.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    document.querySelectorAll("nav .material-symbols-outlined, header .material-symbols-outlined").forEach((icon) => {
+      const iconText = icon.textContent.trim().toLowerCase();
+
+      if (
+        iconText === "language" ||
+        iconText === "dark_mode" ||
+        iconText === "light_mode" ||
+        iconText === "shopping_cart" ||
+        iconText === "person" ||
+        iconText === "menu"
+      ) {
+        const parent = icon.closest("button, a, div");
+        if (parent && !parent.classList.contains("wathba-menu-toggle")) {
+          parent.style.display = "none";
+          parent.setAttribute("aria-hidden", "true");
+        }
+      }
+    });
+  }
+
+  function fixHomeHeroSpacing() {
+    const home = document.getElementById("home");
+    if (!home) return;
+
+    const main = home.closest("main");
+
+    if (main) {
+      main.style.paddingTop = "80px";
+    }
+
+    home.style.minHeight = "calc(100vh - 80px)";
+    home.style.paddingTop = "0";
+    home.style.paddingBottom = "40px";
+  }
+
+  function runWathbaHotfix() {
+    normalizeLogo();
+    translateNavWithoutTouchingLogo();
+    hideOldNavActions();
+    fixHomeHeroSpacing();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(runWathbaHotfix, 50);
+    setTimeout(runWathbaHotfix, 300);
+  });
+
+  document.addEventListener("wathba:langchange", () => {
+    setTimeout(runWathbaHotfix, 50);
+  });
+
+  window.addEventListener("load", runWathbaHotfix);
+})();
