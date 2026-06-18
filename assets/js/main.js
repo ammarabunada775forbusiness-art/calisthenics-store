@@ -9,7 +9,7 @@ const homeTranslations = {
     featuredText: "معدات مختارة للبيت، الخارج، والتجهيزات الاحترافية.",
     viewAllProducts: "عرض كل المنتجات",
     explore: "استكشف",
-    order: "اطلب",
+    order: "أضف للسلة",
     sizes: "القياسات / الأنواع",
     contactUs: "تواصل معنا"
   },
@@ -19,7 +19,7 @@ const homeTranslations = {
     featuredText: "Tested gear for home, outdoor, and professional calisthenics setups.",
     viewAllProducts: "View All Products",
     explore: "Explore",
-    order: "Order",
+    order: "Add to Cart",
     sizes: "Sizes / Types",
     contactUs: "Contact us"
   }
@@ -121,7 +121,7 @@ function renderHomeProducts() {
               onerror="this.style.display='none'; this.previousElementSibling.style.display='block';"
             />
 
-            <div class="home-product-overlay absolute inset-0 bg-background/45 backdrop-blur-sm flex flex-col justify-center items-center gap-4 px-5 text-center">
+            <div class="home-product-overlay absolute inset-0 bg-background/20 backdrop-blur-[2px] flex flex-col justify-center items-center gap-4 px-5 text-center">
               ${getVariantPreview(product)}
             </div>
           </a>
@@ -176,7 +176,11 @@ function renderHomeProducts() {
       const product = products.find((item) => item.id === button.dataset.homeProductId);
 
       if (product) {
-        openWhatsApp(product);
+        if (window.WathbaCart) {
+          window.WathbaCart.addProduct(product);
+        } else {
+          openWhatsApp(product);
+        }
       }
     });
   });

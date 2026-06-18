@@ -368,7 +368,8 @@ function renderProductDetails() {
         <button
           class="wathba-order-btn flex items-center justify-center gap-3 bg-[#25D366] text-white py-5 px-8 rounded-full font-headline-md text-headline-md uppercase tracking-tighter hover:brightness-110 active:scale-95 transition-all shadow-lg"
           type="button"
-          id="orderProductBtn"
+         <span class="material-symbols-outlined">add_shopping_cart</span>
+${currentLang === "ar" ? "إضافة للسلة" : "ADD TO CART"}
         >
           <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
             <path d="M19.11 17.27c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.18.27-.68.87-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.3-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.42.11-.55.11-.11.27-.29.41-.43.14-.15.18-.25.27-.43.09-.18.05-.34-.02-.48-.07-.13-.59-1.43-.81-1.96-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.65 1.11 2.83c.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.58-.65 1.8-1.27.22-.63.22-1.16.15-1.27-.06-.12-.24-.18-.5-.31z"></path>
@@ -420,7 +421,11 @@ function bindProductDetailsEvents() {
 
   if (orderButton) {
     orderButton.addEventListener("click", () => {
-      openWhatsApp(product, selectedVariant);
+      if (window.WathbaCart) {
+        window.WathbaCart.addProduct(product, selectedVariant, 1, { openCart: true });
+      } else {
+        openWhatsApp(product, selectedVariant);
+      }
     });
   }
 }

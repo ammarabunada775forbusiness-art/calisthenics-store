@@ -497,3 +497,298 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("load", runWathbaHotfix);
 })();
+
+/* WATHBA CART PATCH */
+(function () {
+  const CART_KEY = "wathbaCartItems";
+  const PHONE = "962791752349";
+
+  function lang() {
+    return localStorage.getItem("wathbaLang") || "en";
+  }
+
+  function txt(ar, en) {
+    return lang() === "ar" ? ar : en;
+  }
+
+  function readCart() {
+    try {
+      return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    } catch {
+      return [];
+    }
+  }
+
+  function saveCart(items) {
+    localStorage.setItem(CART_KEY, JSON.stringify(items));
+    updateCount();
+    renderCart();
+  }
+
+  function itemName(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+    return value[lang()] || value.en || value.ar || "";
+  }
+
+  function priceText(product) {
+    if (typeof getProductPriceText === "function") {
+      return getProductPriceText(product, lang());
+    }
+
+    if (product.price) return `${product.price} JOD`;
+
+    return product.priceLabel?.[lang()] || txt("اسأل عن السعر", "Ask for price");
+  }
+
+  function cartCount() {
+    return readCart().reduce((sum, item) => sum + Number(item.qty || 1), 0);
+  }
+
+  function updateCount() {
+    document.querySelectorAll(".wathba-cart-count").forEach((badge) => {
+      badge.textContent = cartCount();
+    });
+  }
+
+  function ensureCartShell() {
+    const tools = document.querySelector(".wathba-top-tools");
+
+    if (tools && !tools.querySelector(".wathba-cart-toggle")) {
+      const menuButton = tools.querySelector(".wathba-menu-toggle");
+
+      const button = document.createElement("button");
+      button.className = "wathba-cart-toggle";
+      button.type = "button";
+      button.innerHTML = `
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="wathba-cart-count">0</span>
+      `;
+
+      if (menuButton) {
+        tools.insertBefore(button, menuButton);
+      } else {
+        tools.appendChild(button);
+      }
+    }
+
+    if (!document.getElementById("wathbaCartDrawer")) {
+      document.body.insertAdjacentHTML(
+        "beforeend",
+        `<div class="wathba-cart-drawer" id="wathbaCartDrawer"></div>`
+      );
+    }
+
+    updateCount();
+  }
+
+  function addProduct(product, selectedVariant = null, quantity = 1, options = {}) {
+    if (!product || !product.id) return;
+
+    const variantKey = selectedVariant ? selectedVariant.en || selectedVariant.ar : "default";
+    const key = `${product.id}__${variantKey}`;
+    const items = readCart();
+    const existing = items.find((item) => item.key === key);
+
+    if (existing) {
+      existing.qty += quantity;
+    } else {
+      items.push({
+        key,
+        id: product.id,
+        name: product.name,
+        category: product.category,
+        price: {
+          ar: typeof getProductPriceText === "function" ? getProductPriceText(product, "ar") : priceText(product),
+          en: typeof getProductPriceText === "function" ? getProductPriceText(product, "en") : priceText(product)
+        },
+        variant: selectedVariant
+          ? {
+            ar: selectedVariant.ar || selectedVariant.en,
+            en: selectedVariant.en || selectedVariant.ar
+          }
+          : null,
+        qty: quantity
+      });
+    }
+
+    saveCart(items);
+
+    if (options.openCart) {
+      openCart();
+    }
+  }
+
+  function removeItem(key) {
+    saveCart(readCart().filter((item) => item.key !== key));
+  }
+
+  function changeQty(key, amount) {
+    const items = readCart();
+    const item = items.find((x) => x.key === key);
+
+    if (!item) return;
+
+    item.qty = Math.max(1, Number(item.qty || 1) + amount);
+    saveCart(items);
+  }
+
+  function clearCart() {
+    saveCart([]);
+  }
+
+  function orderCart() {
+    const items = readCart();
+    if (!items.length) return;
+
+    const notes = document.getElementById("wathbaCartNotes")?.value.trim() || "";
+
+    const lines = items.map((item, index) => {
+      const variant = item.variant ? itemName(item.variant) : "";
+
+      if (lang() === "ar") {
+        return `${index + 1}. المنتج: ${itemName(item.name)}
+${variant ? `النوع / القياس: ${variant}\n` : ""}التصنيف: ${itemName(item.category)}
+السعر: ${itemName(item.price)}
+الكمية: ${item.qty}`;
+      }
+
+      return `${index + 1}. Product: ${itemName(item.name)}
+${variant ? `Size / Type: ${variant}\n` : ""}Category: ${itemName(item.category)}
+Price: ${itemName(item.price)}
+Quantity: ${item.qty}`;
+    });
+
+    const message =
+      lang() === "ar"
+        ? `مرحبا WATHBA، أريد طلب المنتجات التالية:\n\n${lines.join("\n\n")}\n\n${notes ? `ملاحظات: ${notes}\n\n` : ""}هل المنتجات متوفرة؟`
+        : `Hello WATHBA, I want to order these products:\n\n${lines.join("\n\n")}\n\n${notes ? `Notes: ${notes}\n\n` : ""}Are these products available?`;
+
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, "_blank");
+  }
+
+  function renderCart() {
+    const drawer = document.getElementById("wathbaCartDrawer");
+    if (!drawer) return;
+
+    const items = readCart();
+
+    const body = items.length
+      ? items
+        .map(
+          (item) => `
+              <div class="wathba-cart-item" data-cart-key="${item.key}">
+                <h4>${itemName(item.name)}</h4>
+                <p>
+                  ${itemName(item.category)}
+                  ${item.variant ? ` • ${itemName(item.variant)}` : ""}
+                </p>
+                <strong>${itemName(item.price)}</strong>
+
+                <div class="wathba-cart-controls">
+                  <button type="button" data-cart-minus>-</button>
+                  <b>${item.qty}</b>
+                  <button type="button" data-cart-plus>+</button>
+                  <button type="button" data-cart-remove>${txt("حذف", "Remove")}</button>
+                </div>
+              </div>
+            `
+        )
+        .join("")
+      : `<div class="wathba-cart-empty">${txt("السلة فارغة. أضف المنتجات التي تريدها ثم اطلبها عبر واتساب.", "Your cart is empty. Add products then order through WhatsApp.")}</div>`;
+
+    drawer.innerHTML = `
+      <div class="wathba-cart-backdrop" data-cart-close></div>
+
+      <aside class="wathba-cart-panel">
+        <div class="wathba-cart-header">
+          <div>
+            <strong>WATHBA</strong>
+            <h3>${txt("سلة الطلبات", "Your Cart")}</h3>
+            <p>${cartCount()} ${txt("منتج", "items")}</p>
+          </div>
+
+          <button class="wathba-cart-close" type="button" data-cart-close>×</button>
+        </div>
+
+        <div class="wathba-cart-body">
+          ${body}
+        </div>
+
+        <div class="wathba-cart-footer">
+          <label>${txt("ملاحظات / قياسات / تفاصيل التوصيل", "Notes / sizes / delivery details")}</label>
+          <textarea id="wathbaCartNotes" rows="3" placeholder="${txt("اكتب أي تفاصيل إضافية هنا...", "Write any extra details here...")}"></textarea>
+
+          <button class="wathba-cart-order" type="button" data-cart-order>
+            ${txt("طلب الآن عبر واتساب", "Order now on WhatsApp")}
+          </button>
+
+          <button class="wathba-cart-clear" type="button" data-cart-clear>
+            ${txt("تفريغ السلة", "Clear cart")}
+          </button>
+        </div>
+      </aside>
+    `;
+  }
+
+  function openCart() {
+    ensureCartShell();
+    renderCart();
+    document.getElementById("wathbaCartDrawer")?.classList.add("open");
+  }
+
+  function closeCart() {
+    document.getElementById("wathbaCartDrawer")?.classList.remove("open");
+  }
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest(".wathba-cart-toggle")) {
+      openCart();
+    }
+
+    if (event.target.closest("[data-cart-close]")) {
+      closeCart();
+    }
+
+    if (event.target.closest("[data-cart-order]")) {
+      orderCart();
+    }
+
+    if (event.target.closest("[data-cart-clear]")) {
+      clearCart();
+    }
+
+    const cartItem = event.target.closest(".wathba-cart-item");
+
+    if (cartItem && event.target.closest("[data-cart-plus]")) {
+      changeQty(cartItem.dataset.cartKey, 1);
+    }
+
+    if (cartItem && event.target.closest("[data-cart-minus]")) {
+      changeQty(cartItem.dataset.cartKey, -1);
+    }
+
+    if (cartItem && event.target.closest("[data-cart-remove]")) {
+      removeItem(cartItem.dataset.cartKey);
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(ensureCartShell, 100);
+    setTimeout(renderCart, 120);
+  });
+
+  document.addEventListener("wathba:langchange", function () {
+    setTimeout(function () {
+      ensureCartShell();
+      renderCart();
+    }, 100);
+  });
+
+  window.WathbaCart = {
+    addProduct,
+    open: openCart,
+    clear: clearCart,
+    getItems: readCart
+  };
+})();
