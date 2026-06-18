@@ -3,758 +3,1090 @@
 <html class="dark" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>About WATHBA | Elite Calisthenics Engineering</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-tint": "#c6c6c7",
-                        "surface-container": "#20201f",
-                        "outline-variant": "#444748",
-                        "on-background": "#e5e2e1",
-                        "inverse-on-surface": "#313030",
-                        "error": "#ffb4ab",
-                        "on-surface-variant": "#c4c7c8",
-                        "tertiary-fixed": "#66ff8e",
-                        "secondary": "#c9c6c5",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "primary-container": "#e2e2e2",
-                        "on-primary-fixed-variant": "#454747",
-                        "outline": "#8e9192",
-                        "on-primary-fixed": "#1a1c1c",
-                        "on-tertiary-fixed": "#002109",
-                        "primary": "#ffffff",
-                        "on-tertiary": "#003915",
-                        "surface-dim": "#131313",
-                        "on-primary-container": "#636565",
-                        "surface-container-highest": "#353535",
-                        "surface-bright": "#393939",
-                        "on-secondary-fixed": "#1c1b1b",
-                        "surface-container-high": "#2a2a2a",
-                        "on-primary": "#2f3131",
-                        "on-error": "#690005",
-                        "error-container": "#93000a",
-                        "surface-container-lowest": "#0e0e0e",
-                        "surface": "#131313",
-                        "on-secondary-fixed-variant": "#474646",
-                        "on-secondary": "#313030",
-                        "on-surface": "#e5e2e1",
-                        "inverse-surface": "#e5e2e1",
-                        "primary-fixed": "#e2e2e2",
-                        "on-tertiary-container": "#007433",
-                        "tertiary-fixed-dim": "#3de273",
-                        "surface-variant": "#353535",
-                        "tertiary": "#ffffff",
-                        "surface-container-low": "#1c1b1b",
-                        "on-secondary-container": "#bab8b7",
-                        "secondary-fixed-dim": "#c9c6c5",
-                        "on-error-container": "#ffdad6",
-                        "secondary-fixed": "#e5e2e1",
-                        "on-tertiary-fixed-variant": "#005322",
-                        "background": "#131313",
-                        "tertiary-container": "#66ff8e",
-                        "secondary-container": "#4a4949",
-                        "inverse-primary": "#5d5f5f"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "container-max": "1440px",
-                        "margin-desktop": "64px",
-                        "unit": "8px",
-                        "gutter": "24px",
-                        "margin-mobile": "20px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["Anton"],
-                        "display-hero": ["Anton"],
-                        "body-md": ["Be Vietnam Pro"],
-                        "label-caps": ["Be Vietnam Pro"],
-                        "headline-md": ["Anton"],
-                        "headline-lg-mobile": ["Anton"],
-                        "body-lg": ["Be Vietnam Pro"],
-                        "arabic-support": ["Be Vietnam Pro"]
-                    },
-                    "fontSize": {
-                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
-                        "display-hero": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
-                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "0em", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-                        "arabic-support": ["18px", { "lineHeight": "32px", "fontWeight": "500" }]
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        body {
-            background-color: #131313;
-            color: #e5e2e1;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            overflow-x: hidden;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .text-glow {
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-
-<!-- WATHBA_GLOBAL_UI_START -->
-<style id="wathba-global-ui-fix">
-  /* ????? ???? ?????? ?? ???? ????? */
-  body:has(#home) main {
-    padding-top: 80px !important;
-  }
-
-  body:has(#home) #home {
-    min-height: calc(100vh - 80px) !important;
-    padding-top: 30px !important;
-    padding-bottom: 60px !important;
-  }
-
-  body:has(#home) #home > .grid {
-    align-items: center !important;
-  }
-
-  /* ?? ????? ??????? */
-  .wathba-top-tools {
-    position: fixed;
-    top: 18px;
-    right: 64px;
-    z-index: 100000;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    direction: ltr !important;
-  }
-
-  .wathba-lang-btn,
-  .wathba-menu-toggle {
-    min-width: 48px;
-    height: 48px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(10,10,10,0.78);
-    color: #ffffff;
-    backdrop-filter: blur(16px);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Be Vietnam Pro", sans-serif;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: 0.25s;
-  }
-
-  .wathba-lang-btn:hover,
-  .wathba-menu-toggle:hover {
-    background: #ffffff;
-    color: #000000;
-    transform: translateY(-2px);
-  }
-
-  .wathba-menu-toggle {
-    display: none;
-  }
-
-  .wathba-mobile-menu {
-    position: fixed;
-    top: 82px;
-    left: 16px;
-    right: 16px;
-    z-index: 99999;
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    padding: 16px;
-    border-radius: 18px;
-    background: rgba(7,7,7,0.96);
-    border: 1px solid rgba(255,255,255,0.14);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.45);
-  }
-
-  .wathba-mobile-menu.open {
-    display: flex;
-  }
-
-  .wathba-mobile-menu a {
-    padding: 14px 16px;
-    border-radius: 12px;
-    color: #ffffff;
-    text-decoration: none;
-    font-family: "Be Vietnam Pro", sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .wathba-mobile-menu a:hover {
-    background: #ffffff;
-    color: #000000;
-  }
-
-  /* ????? ????? ?????? ??????? ??????? ??? */
-  body > a.fixed[href*="wa.me"],
-  main > a.fixed[href*="wa.me"],
-  body > div.fixed a[href*="wa.me"],
-  main > div.fixed a[href*="wa.me"] {
-    display: none !important;
-  }
-
-  /* ?? ?????? ?????? ??? ????? */
-  .whatsapp-widget {
-    position: fixed;
-    right: 28px;
-    bottom: 28px;
-    z-index: 100000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    direction: rtl;
-  }
-
-  .whatsapp-label {
-    background: #333333;
-    color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-family: "Be Vietnam Pro", sans-serif;
-    font-size: 14px;
-    font-weight: 900;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.22);
-    white-space: nowrap;
-  }
-
-  .whatsapp-float {
-    position: relative;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: #25D366 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff !important;
-    box-shadow: 0 18px 45px rgba(37, 211, 102, 0.35);
-    transition: 0.25s;
-  }
-
-  .whatsapp-float:hover {
-    transform: translateY(-4px) scale(1.04);
-  }
-
-  .whatsapp-pulse {
-    position: absolute;
-    inset: -8px;
-    border-radius: 50%;
-    border: 1px solid rgba(37, 211, 102, 0.45);
-    animation: whatsappPulse 1.8s infinite;
-  }
-
-  .whatsapp-float svg {
-    width: 31px;
-    height: 31px;
-    fill: #ffffff;
-    position: relative;
-    z-index: 2;
-  }
-
-  @keyframes whatsappPulse {
-    0% {
-      transform: scale(0.95);
-      opacity: 0.8;
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>About WATHBA | Elite Calisthenics Engineering</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#c6c6c7",
+            "surface-container": "#20201f",
+            "outline-variant": "#444748",
+            "on-background": "#e5e2e1",
+            "inverse-on-surface": "#313030",
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c4c7c8",
+            "tertiary-fixed": "#66ff8e",
+            "secondary": "#c9c6c5",
+            "primary-fixed-dim": "#c6c6c7",
+            "primary-container": "#e2e2e2",
+            "on-primary-fixed-variant": "#454747",
+            "outline": "#8e9192",
+            "on-primary-fixed": "#1a1c1c",
+            "on-tertiary-fixed": "#002109",
+            "primary": "#ffffff",
+            "on-tertiary": "#003915",
+            "surface-dim": "#131313",
+            "on-primary-container": "#636565",
+            "surface-container-highest": "#353535",
+            "surface-bright": "#393939",
+            "on-secondary-fixed": "#1c1b1b",
+            "surface-container-high": "#2a2a2a",
+            "on-primary": "#2f3131",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "surface-container-lowest": "#0e0e0e",
+            "surface": "#131313",
+            "on-secondary-fixed-variant": "#474646",
+            "on-secondary": "#313030",
+            "on-surface": "#e5e2e1",
+            "inverse-surface": "#e5e2e1",
+            "primary-fixed": "#e2e2e2",
+            "on-tertiary-container": "#007433",
+            "tertiary-fixed-dim": "#3de273",
+            "surface-variant": "#353535",
+            "tertiary": "#ffffff",
+            "surface-container-low": "#1c1b1b",
+            "on-secondary-container": "#bab8b7",
+            "secondary-fixed-dim": "#c9c6c5",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#e5e2e1",
+            "on-tertiary-fixed-variant": "#005322",
+            "background": "#131313",
+            "tertiary-container": "#66ff8e",
+            "secondary-container": "#4a4949",
+            "inverse-primary": "#5d5f5f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max": "1440px",
+            "margin-desktop": "64px",
+            "unit": "8px",
+            "gutter": "24px",
+            "margin-mobile": "20px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Anton"],
+            "display-hero": ["Anton"],
+            "body-md": ["Be Vietnam Pro"],
+            "label-caps": ["Be Vietnam Pro"],
+            "headline-md": ["Anton"],
+            "headline-lg-mobile": ["Anton"],
+            "body-lg": ["Be Vietnam Pro"],
+            "arabic-support": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-hero": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+            "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "arabic-support": ["18px", { "lineHeight": "32px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
-    100% {
-      transform: scale(1.25);
+    body {
+      background-color: #131313;
+      color: #e5e2e1;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .text-glow {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .reveal {
       opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-  }
 
-  /* ????? ?????? ?????? ???? ????? ???????? ??????? */
-  .wathba-wa-svg {
-    width: 1.25em;
-    height: 1.25em;
-    fill: currentColor;
-    display: inline-block;
-    flex: 0 0 auto;
-  }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 
-  a[href*="wa.me"] {
-    background: #25D366 !important;
-    color: #ffffff !important;
-  }
-
-  @media (max-width: 767px) {
+  <!-- WATHBA_GLOBAL_UI_START -->
+  <style id="wathba-global-ui-fix">
+    /* ????? ???? ?????? ?? ???? ????? */
     body:has(#home) main {
       padding-top: 80px !important;
     }
 
     body:has(#home) #home {
-      min-height: auto !important;
-      padding-top: 36px !important;
-      padding-bottom: 70px !important;
+      min-height: calc(100vh - 80px) !important;
+      padding-top: 30px !important;
+      padding-bottom: 60px !important;
     }
 
+    body:has(#home) #home>.grid {
+      align-items: center !important;
+    }
+
+    /* ?? ????? ??????? */
     .wathba-top-tools {
-      top: 16px;
-      right: 18px;
-      gap: 8px;
+      position: fixed;
+      top: 18px;
+      right: 64px;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      direction: ltr !important;
     }
 
     .wathba-lang-btn,
     .wathba-menu-toggle {
-      min-width: 46px;
-      height: 46px;
+      min-width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(10, 10, 10, 0.78);
+      color: #ffffff;
+      backdrop-filter: blur(16px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .wathba-lang-btn:hover,
+    .wathba-menu-toggle:hover {
+      background: #ffffff;
+      color: #000000;
+      transform: translateY(-2px);
     }
 
     .wathba-menu-toggle {
-      display: inline-flex;
-    }
-
-    nav [class*="px-margin-desktop"],
-    header [class*="px-margin-desktop"],
-    nav [class*="px-16"],
-    header [class*="px-16"] {
-      padding-left: 20px !important;
-      padding-right: 126px !important;
-    }
-
-    nav [class*="text-headline-md"],
-    header [class*="text-headline-md"] {
-      font-size: 26px !important;
-      line-height: 34px !important;
-    }
-
-    .whatsapp-widget {
-      right: 18px;
-      bottom: 18px;
-      gap: 10px;
-    }
-
-    .whatsapp-label {
       display: none;
     }
 
-    .whatsapp-float {
-      width: 58px;
-      height: 58px;
+    .wathba-mobile-menu {
+      position: fixed;
+      top: 82px;
+      left: 16px;
+      right: 16px;
+      z-index: 99999;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(7, 7, 7, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
     }
 
-    .whatsapp-float svg {
-      width: 29px;
-      height: 29px;
-    }
-  }
-</style>
-<!-- WATHBA_GLOBAL_UI_END -->
-<!-- WATHBA_MOBILE_FIRST_FIX_START -->
-<style id="wathba-mobile-first-fix">
-  @media (max-width: 1024px) {
-    .wathba-menu-toggle {
-      display: inline-flex !important;
+    .wathba-mobile-menu.open {
+      display: flex;
     }
 
-    .wathba-top-tools {
-      top: 16px !important;
-      right: 18px !important;
-      z-index: 100000 !important;
-      gap: 8px !important;
+    .wathba-mobile-menu a {
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .wathba-lang-btn,
-    .wathba-menu-toggle {
-      min-width: 46px !important;
-      height: 46px !important;
+    .wathba-mobile-menu a:hover {
+      background: #ffffff;
+      color: #000000;
     }
 
-    nav .hidden.md\:flex,
-    header .hidden.md\:flex,
-    nav .hidden,
-    header .hidden {
+    /* ????? ????? ?????? ??????? ??????? ??? */
+    body>a.fixed[href*="wa.me"],
+    main>a.fixed[href*="wa.me"],
+    body>div.fixed a[href*="wa.me"],
+    main>div.fixed a[href*="wa.me"] {
       display: none !important;
     }
 
-    nav [class*="px-margin-desktop"],
-    header [class*="px-margin-desktop"],
-    nav [class*="px-16"],
-    header [class*="px-16"],
-    nav [class*="md:px-16"],
-    header [class*="md:px-16"] {
-      padding-left: 20px !important;
-      padding-right: 126px !important;
+    /* ?? ?????? ?????? ??? ????? */
+    .whatsapp-widget {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 100000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      direction: rtl;
     }
 
-    nav,
-    header {
-      min-height: 76px !important;
+    .whatsapp-label {
+      background: #333333;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+      white-space: nowrap;
     }
 
-    .wathba-mobile-menu {
-      top: 84px !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .wathba-lang-btn,
-    .wathba-menu-toggle {
-      min-width: 42px !important;
-      height: 42px !important;
-      font-size: 11px !important;
-    }
-
-    .wathba-top-tools {
-      right: 14px !important;
+    .whatsapp-float {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #25D366 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff !important;
+      box-shadow: 0 18px 45px rgba(37, 211, 102, 0.35);
+      transition: 0.25s;
     }
 
-    nav [class*="px-margin-desktop"],
-    header [class*="px-margin-desktop"],
-    nav [class*="px-16"],
-    header [class*="px-16"],
-    nav [class*="md:px-16"],
-    header [class*="md:px-16"] {
-      padding-left: 16px !important;
-      padding-right: 112px !important;
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.04);
     }
-  }
-</style>
-<!-- WATHBA_MOBILE_FIRST_FIX_END -->
+
+    .whatsapp-pulse {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid rgba(37, 211, 102, 0.45);
+      animation: whatsappPulse 1.8s infinite;
+    }
+
+    .whatsapp-float svg {
+      width: 31px;
+      height: 31px;
+      fill: #ffffff;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes whatsappPulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.25);
+        opacity: 0;
+      }
+    }
+
+    /* ????? ?????? ?????? ???? ????? ???????? ??????? */
+    .wathba-wa-svg {
+      width: 1.25em;
+      height: 1.25em;
+      fill: currentColor;
+      display: inline-block;
+      flex: 0 0 auto;
+    }
+
+    a[href*="wa.me"] {
+      background: #25D366 !important;
+      color: #ffffff !important;
+    }
+
+    @media (max-width: 767px) {
+      body:has(#home) main {
+        padding-top: 80px !important;
+      }
+
+      body:has(#home) #home {
+        min-height: auto !important;
+        padding-top: 36px !important;
+        padding-bottom: 70px !important;
+      }
+
+      .wathba-top-tools {
+        top: 16px;
+        right: 18px;
+        gap: 8px;
+      }
+
+      .wathba-lang-btn,
+      .wathba-menu-toggle {
+        min-width: 46px;
+        height: 46px;
+      }
+
+      .wathba-menu-toggle {
+        display: inline-flex;
+      }
+
+      nav [class*="px-margin-desktop"],
+      header [class*="px-margin-desktop"],
+      nav [class*="px-16"],
+      header [class*="px-16"] {
+        padding-left: 20px !important;
+        padding-right: 126px !important;
+      }
+
+      nav [class*="text-headline-md"],
+      header [class*="text-headline-md"] {
+        font-size: 26px !important;
+        line-height: 34px !important;
+      }
+
+      .whatsapp-widget {
+        right: 18px;
+        bottom: 18px;
+        gap: 10px;
+      }
+
+      .whatsapp-label {
+        display: none;
+      }
+
+      .whatsapp-float {
+        width: 58px;
+        height: 58px;
+      }
+
+      .whatsapp-float svg {
+        width: 29px;
+        height: 29px;
+      }
+    }
+  </style>
+  <!-- WATHBA_GLOBAL_UI_END -->
+  <!-- WATHBA_MOBILE_FIRST_FIX_START -->
+  <style id="wathba-mobile-first-fix">
+    @media (max-width: 1024px) {
+      .wathba-menu-toggle {
+        display: inline-flex !important;
+      }
+
+      .wathba-top-tools {
+        top: 16px !important;
+        right: 18px !important;
+        z-index: 100000 !important;
+        gap: 8px !important;
+      }
+
+      .wathba-lang-btn,
+      .wathba-menu-toggle {
+        min-width: 46px !important;
+        height: 46px !important;
+      }
+
+      nav .hidden.md\:flex,
+      header .hidden.md\:flex,
+      nav .hidden,
+      header .hidden {
+        display: none !important;
+      }
+
+      nav [class*="px-margin-desktop"],
+      header [class*="px-margin-desktop"],
+      nav [class*="px-16"],
+      header [class*="px-16"],
+      nav [class*="md:px-16"],
+      header [class*="md:px-16"] {
+        padding-left: 20px !important;
+        padding-right: 126px !important;
+      }
+
+      nav,
+      header {
+        min-height: 76px !important;
+      }
+
+      .wathba-mobile-menu {
+        top: 84px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .wathba-lang-btn,
+      .wathba-menu-toggle {
+        min-width: 42px !important;
+        height: 42px !important;
+        font-size: 11px !important;
+      }
+
+      .wathba-top-tools {
+        right: 14px !important;
+      }
+
+      nav [class*="px-margin-desktop"],
+      header [class*="px-margin-desktop"],
+      nav [class*="px-16"],
+      header [class*="px-16"],
+      nav [class*="md:px-16"],
+      header [class*="md:px-16"] {
+        padding-left: 16px !important;
+        padding-right: 112px !important;
+      }
+    }
+  </style>
+  <!-- WATHBA_MOBILE_FIRST_FIX_END -->
+
+  <!-- WATHBA_MOBILE_POLISH_START -->
+  <style id="wathba-mobile-polish">
+    /* =========================
+     Mobile First Final Polish
+  ========================= */
+
+    @media (max-width: 1024px) {
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden !important;
+        background: #131313;
+      }
+
+      body {
+        min-width: 0 !important;
+      }
+
+      /* نخلي أدوات اللغة والبرجر ثابتة فوق يمين مهما كانت اللغة */
+      .wathba-top-tools {
+        position: fixed !important;
+        top: 14px !important;
+        right: 14px !important;
+        left: auto !important;
+        z-index: 999999 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        direction: ltr !important;
+      }
+
+      .wathba-lang-btn,
+      .wathba-menu-toggle {
+        width: 42px !important;
+        min-width: 42px !important;
+        height: 42px !important;
+        border-radius: 999px !important;
+        background: rgba(12, 12, 12, 0.86) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        backdrop-filter: blur(16px) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 11px !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.05em !important;
+      }
+
+      .wathba-menu-toggle {
+        display: inline-flex !important;
+      }
+
+      .wathba-menu-toggle .material-symbols-outlined {
+        font-size: 23px !important;
+      }
+
+      /* نخفي روابط الديسكتوب على التابلت والموبايل */
+      nav .hidden,
+      header .hidden,
+      nav .hidden.md\:flex,
+      header .hidden.md\:flex {
+        display: none !important;
+      }
+
+      /* الهيدر نفسه */
+      nav,
+      header {
+        min-height: 70px !important;
+        overflow: visible !important;
+      }
+
+      nav>div,
+      header>nav,
+      header>div {
+        width: 100% !important;
+        padding-left: 18px !important;
+        padding-right: 112px !important;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+      }
+
+      /* اللوجو */
+      nav a[href="#"],
+      nav a[href="index.html"],
+      header a[href="index.html"],
+      nav .font-headline-md,
+      header .font-headline-md {
+        font-size: 25px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+      }
+
+      /* القائمة التي تظهر عند الضغط على البرجر */
+      .wathba-mobile-menu {
+        position: fixed !important;
+        top: 76px !important;
+        left: 14px !important;
+        right: 14px !important;
+        width: auto !important;
+        z-index: 999998 !important;
+        border-radius: 18px !important;
+        background: rgba(7, 7, 7, 0.97) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        backdrop-filter: blur(20px) !important;
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55) !important;
+      }
+
+      .wathba-mobile-menu a {
+        font-size: 13px !important;
+        padding: 14px 16px !important;
+      }
+
+      /* =========================
+       Home Hero Mobile
+    ========================= */
+
+      body:has(#home) main {
+        padding-top: 72px !important;
+      }
+
+      body:has(#home) #home {
+        min-height: auto !important;
+        padding: 34px 20px 70px !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+      }
+
+      body:has(#home) #home>.grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 38px !important;
+        align-items: start !important;
+      }
+
+      body:has(#home) #home .z-10 {
+        position: relative !important;
+        z-index: 5 !important;
+      }
+
+      body:has(#home) #home h1 {
+        font-size: clamp(58px, 18vw, 78px) !important;
+        line-height: 0.88 !important;
+        letter-spacing: -0.03em !important;
+        margin-top: 4px !important;
+        max-width: 100% !important;
+      }
+
+      body:has(#home) #home h2 {
+        font-size: clamp(28px, 8vw, 40px) !important;
+        line-height: 1.05 !important;
+        margin-top: 4px !important;
+        max-width: 100% !important;
+      }
+
+      body:has(#home) #home p {
+        font-size: 15px !important;
+        line-height: 1.75 !important;
+        max-width: 290px !important;
+        margin-top: 24px !important;
+      }
+
+      body:has(#home) #home .mt-12 {
+        margin-top: 30px !important;
+      }
+
+      body:has(#home) #home .flex.flex-wrap.gap-4 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+      }
+
+      body:has(#home) #home button,
+      body:has(#home) #home a {
+        max-width: 100%;
+      }
+
+      body:has(#home) #home button {
+        min-height: 48px !important;
+        padding: 12px 22px !important;
+        font-size: 15px !important;
+      }
+
+      /* صندوق المنتج في الهوم */
+      body:has(#home) #home .md\:col-span-7,
+      body:has(#home) #home .relative.h-\[600px\] {
+        height: 360px !important;
+        min-height: 360px !important;
+        max-height: 360px !important;
+        margin-top: 4px !important;
+      }
+
+      body:has(#home) #home .product-360-container {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      body:has(#home) #home .product-360-inner {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      body:has(#home) #home #hero-product {
+        width: 92% !important;
+        max-width: 320px !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
+      /* كروت المواصفات حول المنتج */
+      body:has(#home) #home .glass-panel {
+        padding: 10px 12px !important;
+        border-radius: 10px !important;
+      }
+
+      body:has(#home) #home .glass-panel span:first-child {
+        font-size: 8px !important;
+      }
+
+      body:has(#home) #home .glass-panel span:last-child {
+        font-size: 15px !important;
+        line-height: 1.1 !important;
+      }
+
+      body:has(#home) #home .absolute.top-20.right-0 {
+        top: 0 !important;
+        right: 8px !important;
+      }
+
+      body:has(#home) #home .absolute.bottom-40.left-0 {
+        bottom: 18px !important;
+        left: 20px !important;
+      }
+
+      body:has(#home) #home .absolute.top-1\/2.left-\[-40px\] {
+        top: 52% !important;
+        left: 0 !important;
+      }
+
+      /* =========================
+       WhatsApp Mobile
+    ========================= */
+
+      .whatsapp-widget {
+        right: 18px !important;
+        bottom: 18px !important;
+        left: auto !important;
+        z-index: 999999 !important;
+        direction: ltr !important;
+      }
+
+      .whatsapp-label {
+        display: none !important;
+      }
+
+      .whatsapp-float {
+        width: 56px !important;
+        height: 56px !important;
+        min-width: 56px !important;
+        border-radius: 50% !important;
+        box-shadow: 0 16px 40px rgba(37, 211, 102, 0.35) !important;
+      }
+
+      .whatsapp-float svg {
+        width: 29px !important;
+        height: 29px !important;
+      }
+
+      /* =========================
+       Products / Cards Mobile
+    ========================= */
+
+      section {
+        max-width: 100% !important;
+      }
+
+      section[class*="px-margin-desktop"],
+      footer [class*="px-margin-desktop"],
+      main [class*="px-margin-desktop"] {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      .grid {
+        max-width: 100% !important;
+      }
+
+      .product-card,
+      .group.relative {
+        max-width: 100% !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      body:has(#home) #home {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+
+      body:has(#home) #home h1 {
+        font-size: clamp(52px, 17vw, 68px) !important;
+      }
+
+      body:has(#home) #home h2 {
+        font-size: 30px !important;
+      }
+
+      body:has(#home) #home p {
+        max-width: 270px !important;
+      }
+
+      body:has(#home) #home .md\:col-span-7,
+      body:has(#home) #home .relative.h-\[600px\] {
+        height: 330px !important;
+        min-height: 330px !important;
+      }
+
+      body:has(#home) #home #hero-product {
+        max-width: 280px !important;
+      }
+    }
+  </style>
+  <!-- WATHBA_MOBILE_POLISH_END -->
 </head>
 
 <body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
-<!-- WATHBA_GLOBAL_UI_START -->
-<div class="wathba-top-tools">
-  <button class="wathba-lang-btn" type="button">AR</button>
-  <button class="wathba-menu-toggle" type="button" aria-label="Open menu">
-    <span class="material-symbols-outlined">menu</span>
-  </button>
-</div>
+  <!-- WATHBA_GLOBAL_UI_START -->
+  <div class="wathba-top-tools">
+    <button class="wathba-lang-btn" type="button">AR</button>
+    <button class="wathba-menu-toggle" type="button" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
 
-<div class="wathba-mobile-menu" id="wathbaMobileMenu">
-  <a href="index.html">Home</a>
-  <a href="products.html">Products</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</div>
+  <div class="wathba-mobile-menu" id="wathbaMobileMenu">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-<div id="sharedWhatsApp"></div>
-<!-- WATHBA_GLOBAL_UI_END -->
+  <div id="sharedWhatsApp"></div>
+  <!-- WATHBA_GLOBAL_UI_END -->
 
-    <!-- TopNavBar -->
-    <header
-        class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
-        <div class="flex justify-between items-center px-16 h-20 w-full max-w-container-max mx-auto">
-            <div class="font-headline-md text-headline-md text-primary tracking-tighter uppercase">WATHBA</div>
-            <nav class="hidden md:flex gap-8 items-center">
-                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
-                    href="index.html">Home</a>
-                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
-                    href="products.html">Products</a>
-                <a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300"
-                    href="about.html">About</a>
-                <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
-                    href="contact.html">Contact</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                
-            </div>
-        </div>
-    </header>
-    <main class="pt-20">
-        <!-- Section 1: Hero -->
-        <section class="relative h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img alt="WATHBA Athletic Hero" class="w-full h-full object-cover grayscale opacity-60 scale-105"
-                    data-alt="A high-contrast cinematic photograph of a muscular athlete's hands gripping professional wooden calisthenics rings. The lighting is dramatic and moody, focusing on the tension in the forearms and the texture of the premium wood. The background is a dark, minimalist professional studio with deep shadows and soft highlights, reflecting a luxury sports-tech aesthetic with a monochromatic palette."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmalCL-B1ZGb2hFLsJ5x7wJfSsKUllaesOSzZEYQi08DEoicD3JkxkZj6l8alO-ThHiDFTrCw5MOwWFrzOVrU3DOiwLcPxbNkgewdYrzOTEeOhMixgBPr0r0D3lmCxqx8GQUcmOfNlUOW8lUp7Rr6HIxR8GQIi3lXcjBpZaTKkDP-Fqnnb1YsvaHe3VRNOjU4dnR9ZWN02Rm7VxdRyShL8hHQVZL4KaXpLmH9cyIGrmUvb-NHryjdAd4hldPXvKfd6klFEJx7nWg" />
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
-            </div>
-            <div class="relative z-10 text-center px-6">
-                <h1
-                    class="font-display-hero text-display-hero text-primary uppercase leading-none tracking-tighter text-glow reveal">
-                    ABOUT WATHBA
-                </h1>
-                <p
-                    class="font-label-caps text-label-caps text-on-surface-variant mt-8 tracking-[0.3em] reveal delay-200">
-                    ENGINEERED IN THE PURSUIT OF PHYSICAL MASTERY
-                </p>
-            </div>
-        </section>
-        <!-- Section 2: Brand Story -->
-        <section class="py-32 px-16 max-w-container-max mx-auto">
-            <div class="grid md:grid-cols-12 gap-16 items-center">
-                <div class="md:col-span-5 reveal">
-                    <h2 class="font-headline-lg text-headline-lg text-primary uppercase mb-8">THE CRAFT</h2>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Born from the gritty streets and polished by high-performance engineering, WATHBA is the
-                        definitive answer for those who demand more from their gear. We don't just manufacture tools; we
-                        forge extensions of the human body.
-                    </p>
-                    <p class="font-body-md text-body-md text-on-surface-variant mt-6 leading-relaxed opacity-80">
-                        Our journey began with a single frustration: the lack of equipment that could withstand the
-                        explosive power of professional calisthenics while maintaining an aesthetic fit for the modern
-                        luxury space. Every ring, every bar, and every strap is a testament to our obsession with
-                        detail.
-                    </p>
-                </div>
-                <div class="md:col-span-7 relative reveal delay-300">
-                    <div
-                        class="aspect-[4/3] bg-surface-container-low overflow-hidden rounded-xl border border-outline-variant/20">
-                        <img alt="The Craftmanship" class="w-full h-full object-cover grayscale"
-                            data-alt="An extreme close-up of a high-end calisthenics pull-up bar showing the intricate knurling on the steel surface. The lighting is sharp, highlighting the metallic texture and the precision of the manufacturing. The background is a blurred, dark industrial studio space with a high-key focus on the industrial design and the premium quality of the materials used in WATHBA gear."
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKsqXhQqxZ-AYNaVKKsAPtj3V5SN98oVFUU96O1g3_-U8igWVgliNBJSSzYnV9fRANwvmYn-ccE2aOCllv--9Fw1J3kB-77C6SDFLt-cDVXo19D85jhUNF0O3XNWNA5S3yU8hXRwDe5OGAepqJNvwDge42ffXQG48578Alz90n6Uuo5S3G1kcs3WFTxkAUfvVZyzJS8U-yCszTkqDC4qhKtRYzRJJCH_JvIcM4NCFrQ9imqouPTL01TWPfRjU_kxYcqQrc699oXw" />
-                    </div>
-                    <!-- Data Block Overlay -->
-                    <div class="absolute -bottom-8 -left-8 glass-panel p-8 rounded-xl reveal delay-500">
-                        <div class="font-headline-md text-headline-md text-primary leading-tight">100%<br />PRO-GRADE
-                        </div>
-                        <div class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase">MIL-SPEC
-                            MATERIALS</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Section 3: Mission -->
-        <section class="bg-surface-container-lowest py-40 overflow-hidden">
-            <div class="max-w-container-max mx-auto px-16 relative">
-                <div class="absolute -right-20 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
-                    <span
-                        class="font-display-hero text-display-hero text-primary leading-none select-none">STRENGTH</span>
-                </div>
-                <div class="max-w-3xl reveal">
-                    <span class="font-label-caps text-label-caps text-primary mb-4 block">OUR MISSION</span>
-                    <h2 class="font-headline-lg text-headline-lg text-primary uppercase leading-tight mb-12">
-                        ENGINEERING HUMAN <br /> POTENTIAL.
-                    </h2>
-                    <div class="h-1 w-24 bg-primary mb-12"></div>
-                    <p class="font-body-lg text-body-lg text-on-surface leading-loose">
-                        WATHBA exists at the intersection of elite performance and uncompromising design. We provide the
-                        tools that allow the human body to defy gravity, build raw power, and achieve a state of
-                        physical flow. Our commitment is to provide the elite athlete with equipment that is as
-                        resilient as their spirit.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!-- Section 4: Core Values -->
-        <section class="py-32 px-16 max-w-container-max mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Strength -->
-                <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal">
-                    <div class="font-headline-md text-headline-md text-primary uppercase">STRENGTH</div>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Built to withstand thousands of hours
-                        of peak-intensity loads without compromise.</p>
-                </div>
-                <!-- Control -->
-                <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal delay-100">
-                    <div class="font-headline-md text-headline-md text-primary uppercase">CONTROL</div>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Precision textures and ergonomic
-                        geometries that offer absolute grip and spatial awareness.</p>
-                </div>
-                <!-- Progress -->
-                <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal delay-200">
-                    <div class="font-headline-md text-headline-md text-primary uppercase">PROGRESS</div>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Iterative design philosophy that
-                        evolves alongside the world's most advanced practitioners.</p>
-                </div>
-                <!-- Build Quality -->
-                <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal delay-300">
-                    <div class="font-headline-md text-headline-md text-primary uppercase">BUILD QUALITY</div>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Sourced from premium aerospace-grade
-                        alloys and sustainable hardwoods for life-long durability.</p>
-                </div>
-            </div>
-        </section>
-        <!-- Section 5: Visual Showcase -->
-        <section class="relative py-20 px-4 md:px-0 reveal">
-            <div class="w-full aspect-[21/9] overflow-hidden">
-                <img alt="WATHBA Studio" class="w-full h-full object-cover grayscale brightness-50"
-                    data-alt="A wide-angle editorial shot of a luxury minimalist home gym featuring WATHBA equipment. The space is constructed from raw concrete and dark wood, with floor-to-ceiling windows showing a moody cityscape at dusk. The equipment is perfectly arranged, caught in soft top-down spotlighting that creates deep shadows. The overall vibe is high-fashion, athletic, and extremely premium."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtbhQNsBOPmmK_wmf77e12CfDtUZLQ8aUxBB9LhYXXA9xNPe79a-iF5P6vHxU3VxpEleKs5O2D92_XMUGmnr75NUJNreXDntjh-uwwwyPaHHb2y12V8XNL09pxzEBKG_S8AXhTeTVKKYFFRntGvk7Elchg73JwUsY9cuG6P49g4RrN-Ke-2asuF2iuXUKlZ1efsB7y3UydjfwohTXOIcJ8KCW-tMDpaW47OH0iFyBOSSLP3a8SV90puFbyNjA6yEWN_ZuiqKWjhA" />
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="text-center px-4">
-                        <div class="font-label-caps text-label-caps text-primary tracking-[0.5em] mb-4">THE SETTING
-                        </div>
-                        <h3 class="font-headline-lg text-headline-lg text-primary uppercase">WHERE POWER MEETS
-                            AESTHETICS</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Section 6: Final CTA -->
-        <section class="py-40 px-16 text-center max-w-container-max mx-auto reveal">
-            <h2 class="font-headline-lg text-headline-lg text-primary uppercase mb-6">EQUIP YOUR JOURNEY</h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
-                Join the global community of elite calisthenics practitioners. Our team is ready to help you configure
-                your professional training environment.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a class="bg-primary text-on-primary font-headline-md text-label-caps py-6 px-12 rounded-full uppercase transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
-                    href="#">
-                    EXPLORE PRODUCTS
-                </a>
-                <a class="bg-[#25D366] text-white font-headline-md text-label-caps py-6 px-12 rounded-full uppercase transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
-                    href="https://wa.me/962791752349">
-                    <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
-  <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z"/>
-  <path d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z"/>
-</svg>
-                    WHATSAPP US
-                </a>
-            </div>
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer class="w-full border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest">
-        <div class="flex flex-col items-center py-20 px-16 w-full max-w-container-max mx-auto space-y-12">
-            <div class="font-headline-lg text-headline-lg text-primary uppercase">WATHBA</div>
-            <div class="flex flex-wrap justify-center gap-10">
-                <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
-                    href="#">Privacy Policy</a>
-                <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
-                    href="#">Terms of Service</a>
-                <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
-                    href="#">Shipping</a>
-                <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
-                    href="#">Returns</a>
-            </div>
-            <div class="font-body-md text-body-md text-on-surface-variant opacity-50">
-                © 2026 WATHBA. ALL RIGHTS RESERVED.
-            </div>
-        </div>
-    </footer>
-    <!-- BottomNavBar (Floating WhatsApp FAB) -->
-    <div class="fixed bottom-8 right-8 z-50 flex justify-end items-center">
-        <a class="bg-[#25D366] text-white p-4 rounded-full flex items-center justify-center shadow-[2px_2px_0px_white] hover:scale-110 active:scale-90 transition-all duration-200"
-            href="https://wa.me/962791752349" title="Order via WhatsApp">
-            <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
-  <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z"/>
-  <path d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z"/>
-</svg>
-        </a>
+  <!-- TopNavBar -->
+  <header
+    class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+    <div class="flex justify-between items-center px-16 h-20 w-full max-w-container-max mx-auto">
+      <div class="font-headline-md text-headline-md text-primary tracking-tighter uppercase">WATHBA</div>
+      <nav class="hidden md:flex gap-8 items-center">
+        <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
+          href="index.html">Home</a>
+        <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
+          href="products.html">Products</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300"
+          href="about.html">About</a>
+        <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
+          href="contact.html">Contact</a>
+      </nav>
+      <div class="flex items-center gap-4">
+
+      </div>
     </div>
-    <script>
-        // Micro-interactions and Scroll Reveal
-        const observerOptions = {
-            threshold: 0.1
-        };
+  </header>
+  <main class="pt-20">
+    <!-- Section 1: Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img alt="WATHBA Athletic Hero" class="w-full h-full object-cover grayscale opacity-60 scale-105"
+          data-alt="A high-contrast cinematic photograph of a muscular athlete's hands gripping professional wooden calisthenics rings. The lighting is dramatic and moody, focusing on the tension in the forearms and the texture of the premium wood. The background is a dark, minimalist professional studio with deep shadows and soft highlights, reflecting a luxury sports-tech aesthetic with a monochromatic palette."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmalCL-B1ZGb2hFLsJ5x7wJfSsKUllaesOSzZEYQi08DEoicD3JkxkZj6l8alO-ThHiDFTrCw5MOwWFrzOVrU3DOiwLcPxbNkgewdYrzOTEeOhMixgBPr0r0D3lmCxqx8GQUcmOfNlUOW8lUp7Rr6HIxR8GQIi3lXcjBpZaTKkDP-Fqnnb1YsvaHe3VRNOjU4dnR9ZWN02Rm7VxdRyShL8hHQVZL4KaXpLmH9cyIGrmUvb-NHryjdAd4hldPXvKfd6klFEJx7nWg" />
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
+      </div>
+      <div class="relative z-10 text-center px-6">
+        <h1
+          class="font-display-hero text-display-hero text-primary uppercase leading-none tracking-tighter text-glow reveal">
+          ABOUT WATHBA
+        </h1>
+        <p class="font-label-caps text-label-caps text-on-surface-variant mt-8 tracking-[0.3em] reveal delay-200">
+          ENGINEERED IN THE PURSUIT OF PHYSICAL MASTERY
+        </p>
+      </div>
+    </section>
+    <!-- Section 2: Brand Story -->
+    <section class="py-32 px-16 max-w-container-max mx-auto">
+      <div class="grid md:grid-cols-12 gap-16 items-center">
+        <div class="md:col-span-5 reveal">
+          <h2 class="font-headline-lg text-headline-lg text-primary uppercase mb-8">THE CRAFT</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Born from the gritty streets and polished by high-performance engineering, WATHBA is the
+            definitive answer for those who demand more from their gear. We don't just manufacture tools; we
+            forge extensions of the human body.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-6 leading-relaxed opacity-80">
+            Our journey began with a single frustration: the lack of equipment that could withstand the
+            explosive power of professional calisthenics while maintaining an aesthetic fit for the modern
+            luxury space. Every ring, every bar, and every strap is a testament to our obsession with
+            detail.
+          </p>
+        </div>
+        <div class="md:col-span-7 relative reveal delay-300">
+          <div
+            class="aspect-[4/3] bg-surface-container-low overflow-hidden rounded-xl border border-outline-variant/20">
+            <img alt="The Craftmanship" class="w-full h-full object-cover grayscale"
+              data-alt="An extreme close-up of a high-end calisthenics pull-up bar showing the intricate knurling on the steel surface. The lighting is sharp, highlighting the metallic texture and the precision of the manufacturing. The background is a blurred, dark industrial studio space with a high-key focus on the industrial design and the premium quality of the materials used in WATHBA gear."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKsqXhQqxZ-AYNaVKKsAPtj3V5SN98oVFUU96O1g3_-U8igWVgliNBJSSzYnV9fRANwvmYn-ccE2aOCllv--9Fw1J3kB-77C6SDFLt-cDVXo19D85jhUNF0O3XNWNA5S3yU8hXRwDe5OGAepqJNvwDge42ffXQG48578Alz90n6Uuo5S3G1kcs3WFTxkAUfvVZyzJS8U-yCszTkqDC4qhKtRYzRJJCH_JvIcM4NCFrQ9imqouPTL01TWPfRjU_kxYcqQrc699oXw" />
+          </div>
+          <!-- Data Block Overlay -->
+          <div class="absolute -bottom-8 -left-8 glass-panel p-8 rounded-xl reveal delay-500">
+            <div class="font-headline-md text-headline-md text-primary leading-tight">100%<br />PRO-GRADE
+            </div>
+            <div class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase">MIL-SPEC
+              MATERIALS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 3: Mission -->
+    <section class="bg-surface-container-lowest py-40 overflow-hidden">
+      <div class="max-w-container-max mx-auto px-16 relative">
+        <div class="absolute -right-20 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+          <span class="font-display-hero text-display-hero text-primary leading-none select-none">STRENGTH</span>
+        </div>
+        <div class="max-w-3xl reveal">
+          <span class="font-label-caps text-label-caps text-primary mb-4 block">OUR MISSION</span>
+          <h2 class="font-headline-lg text-headline-lg text-primary uppercase leading-tight mb-12">
+            ENGINEERING HUMAN <br /> POTENTIAL.
+          </h2>
+          <div class="h-1 w-24 bg-primary mb-12"></div>
+          <p class="font-body-lg text-body-lg text-on-surface leading-loose">
+            WATHBA exists at the intersection of elite performance and uncompromising design. We provide the
+            tools that allow the human body to defy gravity, build raw power, and achieve a state of
+            physical flow. Our commitment is to provide the elite athlete with equipment that is as
+            resilient as their spirit.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Section 4: Core Values -->
+    <section class="py-32 px-16 max-w-container-max mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Strength -->
+        <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal">
+          <div class="font-headline-md text-headline-md text-primary uppercase">STRENGTH</div>
+          <p class="font-body-md text-body-md text-on-surface-variant">Built to withstand thousands of hours
+            of peak-intensity loads without compromise.</p>
+        </div>
+        <!-- Control -->
+        <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal delay-100">
+          <div class="font-headline-md text-headline-md text-primary uppercase">CONTROL</div>
+          <p class="font-body-md text-body-md text-on-surface-variant">Precision textures and ergonomic
+            geometries that offer absolute grip and spatial awareness.</p>
+        </div>
+        <!-- Progress -->
+        <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal delay-200">
+          <div class="font-headline-md text-headline-md text-primary uppercase">PROGRESS</div>
+          <p class="font-body-md text-body-md text-on-surface-variant">Iterative design philosophy that
+            evolves alongside the world's most advanced practitioners.</p>
+        </div>
+        <!-- Build Quality -->
+        <div class="glass-panel p-10 flex flex-col justify-between min-h-[320px] reveal delay-300">
+          <div class="font-headline-md text-headline-md text-primary uppercase">BUILD QUALITY</div>
+          <p class="font-body-md text-body-md text-on-surface-variant">Sourced from premium aerospace-grade
+            alloys and sustainable hardwoods for life-long durability.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Section 5: Visual Showcase -->
+    <section class="relative py-20 px-4 md:px-0 reveal">
+      <div class="w-full aspect-[21/9] overflow-hidden">
+        <img alt="WATHBA Studio" class="w-full h-full object-cover grayscale brightness-50"
+          data-alt="A wide-angle editorial shot of a luxury minimalist home gym featuring WATHBA equipment. The space is constructed from raw concrete and dark wood, with floor-to-ceiling windows showing a moody cityscape at dusk. The equipment is perfectly arranged, caught in soft top-down spotlighting that creates deep shadows. The overall vibe is high-fashion, athletic, and extremely premium."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtbhQNsBOPmmK_wmf77e12CfDtUZLQ8aUxBB9LhYXXA9xNPe79a-iF5P6vHxU3VxpEleKs5O2D92_XMUGmnr75NUJNreXDntjh-uwwwyPaHHb2y12V8XNL09pxzEBKG_S8AXhTeTVKKYFFRntGvk7Elchg73JwUsY9cuG6P49g4RrN-Ke-2asuF2iuXUKlZ1efsB7y3UydjfwohTXOIcJ8KCW-tMDpaW47OH0iFyBOSSLP3a8SV90puFbyNjA6yEWN_ZuiqKWjhA" />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="text-center px-4">
+            <div class="font-label-caps text-label-caps text-primary tracking-[0.5em] mb-4">THE SETTING
+            </div>
+            <h3 class="font-headline-lg text-headline-lg text-primary uppercase">WHERE POWER MEETS
+              AESTHETICS</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 6: Final CTA -->
+    <section class="py-40 px-16 text-center max-w-container-max mx-auto reveal">
+      <h2 class="font-headline-lg text-headline-lg text-primary uppercase mb-6">EQUIP YOUR JOURNEY</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+        Join the global community of elite calisthenics practitioners. Our team is ready to help you configure
+        your professional training environment.
+      </p>
+      <div class="flex flex-col md:flex-row justify-center gap-6">
+        <a class="bg-primary text-on-primary font-headline-md text-label-caps py-6 px-12 rounded-full uppercase transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+          href="#">
+          EXPLORE PRODUCTS
+        </a>
+        <a class="bg-[#25D366] text-white font-headline-md text-label-caps py-6 px-12 rounded-full uppercase transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+          href="https://wa.me/962791752349">
+          <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
+            <path
+              d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z" />
+            <path
+              d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z" />
+          </svg>
+          WHATSAPP US
+        </a>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest">
+    <div class="flex flex-col items-center py-20 px-16 w-full max-w-container-max mx-auto space-y-12">
+      <div class="font-headline-lg text-headline-lg text-primary uppercase">WATHBA</div>
+      <div class="flex flex-wrap justify-center gap-10">
+        <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
+          href="#">Privacy Policy</a>
+        <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
+          href="#">Terms of Service</a>
+        <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
+          href="#">Shipping</a>
+        <a class="text-on-surface-variant font-label-caps hover:text-primary transition-all active:underline uppercase"
+          href="#">Returns</a>
+      </div>
+      <div class="font-body-md text-body-md text-on-surface-variant opacity-50">
+        © 2026 WATHBA. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+  <!-- BottomNavBar (Floating WhatsApp FAB) -->
+  <div class="fixed bottom-8 right-8 z-50 flex justify-end items-center">
+    <a class="bg-[#25D366] text-white p-4 rounded-full flex items-center justify-center shadow-[2px_2px_0px_white] hover:scale-110 active:scale-90 transition-all duration-200"
+      href="https://wa.me/962791752349" title="Order via WhatsApp">
+      <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z" />
+        <path
+          d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z" />
+      </svg>
+    </a>
+  </div>
+  <script>
+    // Micro-interactions and Scroll Reveal
+    const observerOptions = {
+      threshold: 0.1
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
 
-        // Parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('section img');
-            if (heroImage) {
-                heroImage.style.transform = `translateY(${scrolled * 0.1}px) scale(1.05)`;
-            }
-        });
-    </script>
+    // Parallax effect for hero
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const heroImage = document.querySelector('section img');
+      if (heroImage) {
+        heroImage.style.transform = `translateY(${scrolled * 0.1}px) scale(1.05)`;
+      }
+    });
+  </script>
 
-<!-- WATHBA_GLOBAL_UI_START -->
-<script id="wathba-global-ui-js">
-  (function () {
-    const phone = "962791752349";
+  <!-- WATHBA_GLOBAL_UI_START -->
+  <script id="wathba-global-ui-js">
+    (function () {
+      const phone = "962791752349";
 
-    const waSvg = `
+      const waSvg = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
         <path d="M19.11 17.27c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.18.27-.68.87-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.3-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.42.11-.55.11-.11.27-.29.41-.43.14-.15.18-.25.27-.43.09-.18.05-.34-.02-.48-.07-.13-.59-1.43-.81-1.96-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.65 1.11 2.83c.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.58-.65 1.8-1.27.22-.63.22-1.16.15-1.27-.06-.12-.24-.18-.5-.31z"></path>
         <path d="M16.02 3.2c-7.07 0-12.8 5.72-12.8 12.77 0 2.25.59 4.45 1.71 6.39L3.1 28.8l6.63-1.73a12.8 12.8 0 0 0 6.29 1.69h.01c7.06 0 12.79-5.72 12.79-12.77 0-3.42-1.34-6.63-3.79-9.04A12.76 12.76 0 0 0 16.02 3.2zm0 23.39h-.01a10.62 10.62 0 0 1-5.41-1.49l-.39-.23-3.94 1.03 1.05-3.84-.25-.4a10.55 10.55 0 0 1-1.63-5.61c0-5.84 4.76-10.59 10.6-10.59 2.82 0 5.47 1.09 7.47 3.08a10.5 10.5 0 0 1 3.11 7.51c0 5.84-4.76 10.59-10.6 10.59z"></path>
       </svg>
     `;
 
-    const mobileMenu = document.getElementById("wathbaMobileMenu");
-    const menuBtn = document.querySelector(".wathba-menu-toggle");
-    const langBtn = document.querySelector(".wathba-lang-btn");
+      const mobileMenu = document.getElementById("wathbaMobileMenu");
+      const menuBtn = document.querySelector(".wathba-menu-toggle");
+      const langBtn = document.querySelector(".wathba-lang-btn");
 
-    function getLang() {
-      return localStorage.getItem("wathbaLang") || "en";
-    }
-
-    function applyLang(lang) {
-      localStorage.setItem("wathbaLang", lang);
-
-      // ???: ?? ???? dir ???? ??? ?? ???? ????? Stitch
-      document.documentElement.lang = lang;
-      document.documentElement.dir = "ltr";
-
-      if (langBtn) {
-        langBtn.textContent = lang === "ar" ? "EN" : "AR";
+      function getLang() {
+        return localStorage.getItem("wathbaLang") || "en";
       }
 
-      renderWhatsAppWidget();
-    }
+      function applyLang(lang) {
+        localStorage.setItem("wathbaLang", lang);
 
-    function renderWhatsAppWidget() {
-      const lang = getLang();
-      const host = document.getElementById("sharedWhatsApp");
-      if (!host) return;
+        // ???: ?? ???? dir ???? ??? ?? ???? ????? Stitch
+        document.documentElement.lang = lang;
+        document.documentElement.dir = "ltr";
 
-      const label = lang === "ar" ? "??????" : "Chat with us";
-      const message = lang === "ar"
-        ? "?????? ???? ????????? ?? ?????? WATHBA"
-        : "Hello, I want to ask about WATHBA products";
+        if (langBtn) {
+          langBtn.textContent = lang === "ar" ? "EN" : "AR";
+        }
 
-      host.innerHTML = `
+        renderWhatsAppWidget();
+      }
+
+      function renderWhatsAppWidget() {
+        const lang = getLang();
+        const host = document.getElementById("sharedWhatsApp");
+        if (!host) return;
+
+        const label = lang === "ar" ? "??????" : "Chat with us";
+        const message = lang === "ar"
+          ? "?????? ???? ????????? ?? ?????? WATHBA"
+          : "Hello, I want to ask about WATHBA products";
+
+        host.innerHTML = `
         <div class="whatsapp-widget">
           <div class="whatsapp-label">${label}</div>
           <a href="https://wa.me/${phone}?text=${encodeURIComponent(message)}"
@@ -767,72 +1099,69 @@
           </a>
         </div>
       `;
-    }
-
-    if (langBtn) {
-      langBtn.addEventListener("click", () => {
-        const nextLang = getLang() === "en" ? "ar" : "en";
-        applyLang(nextLang);
-      });
-    }
-
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("open");
-      });
-
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => mobileMenu.classList.remove("open"));
-      });
-    }
-
-    document.querySelectorAll('a[href="#"]').forEach((link) => {
-      const text = link.textContent.toLowerCase();
-
-      if (text.includes("whatsapp") || text.includes("order") || text.includes("chat")) {
-        link.href = "https://wa.me/" + phone;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
       }
 
-      if (text.includes("browse products") || text.includes("explore products")) {
-        link.href = "products.html";
+      if (langBtn) {
+        langBtn.addEventListener("click", () => {
+          const nextLang = getLang() === "en" ? "ar" : "en";
+          applyLang(nextLang);
+        });
       }
-    });
 
-    document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
-      link.href = link.href.replace(/wa\.me\/[^?"]+/, "wa.me/" + phone);
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("open");
+        });
 
-      link.querySelectorAll(".material-symbols-outlined").forEach((icon) => {
-        if (icon.textContent.trim() === "chat") {
-          icon.outerHTML = `<span class="wathba-wa-svg">${waSvg}</span>`;
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+        });
+      }
+
+      document.querySelectorAll('a[href="#"]').forEach((link) => {
+        const text = link.textContent.toLowerCase();
+
+        if (text.includes("whatsapp") || text.includes("order") || text.includes("chat")) {
+          link.href = "https://wa.me/" + phone;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        }
+
+        if (text.includes("browse products") || text.includes("explore products")) {
+          link.href = "products.html";
         }
       });
-    });
 
-    document.querySelectorAll("button").forEach((button) => {
-      const text = button.textContent.toLowerCase();
+      document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+        link.href = link.href.replace(/wa\.me\/[^?"]+/, "wa.me/" + phone);
 
-      if (text.includes("browse products") || text.includes("explore products")) {
-        button.addEventListener("click", () => {
-          window.location.href = "products.html";
+        link.querySelectorAll(".material-symbols-outlined").forEach((icon) => {
+          if (icon.textContent.trim() === "chat") {
+            icon.outerHTML = `<span class="wathba-wa-svg">${waSvg}</span>`;
+          }
         });
-      }
+      });
 
-      if (text.includes("whatsapp") || text.includes("order via whatsapp")) {
-        button.addEventListener("click", () => {
-          window.open("https://wa.me/" + phone, "_blank");
-        });
-      }
-    });
+      document.querySelectorAll("button").forEach((button) => {
+        const text = button.textContent.toLowerCase();
 
-    applyLang(getLang());
-  })();
-</script>
-<!-- WATHBA_GLOBAL_UI_END -->
+        if (text.includes("browse products") || text.includes("explore products")) {
+          button.addEventListener("click", () => {
+            window.location.href = "products.html";
+          });
+        }
+
+        if (text.includes("whatsapp") || text.includes("order via whatsapp")) {
+          button.addEventListener("click", () => {
+            window.open("https://wa.me/" + phone, "_blank");
+          });
+        }
+      });
+
+      applyLang(getLang());
+    })();
+  </script>
+  <!-- WATHBA_GLOBAL_UI_END -->
 </body>
 
 </html>
-
-
-
