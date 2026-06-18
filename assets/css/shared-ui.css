@@ -1207,12 +1207,12 @@ body:has(#home) main {
   }
 
   body:has(#home) #home .md\:col-span-5 {
-    order: 2 !important;
+    order: 1 !important;
   }
 
   body:has(#home) #home .md\:col-span-7,
   body:has(#home) #home .relative.h-\[600px\] {
-    order: 1 !important;
+    order: 2 !important;
     position: relative !important;
     height: 400px !important;
     min-height: 400px !important;
@@ -1306,5 +1306,24 @@ body:has(#home) main {
     bottom: 48px !important;
     top: auto !important;
     left: auto !important;
+  }
+}
+
+/* FIX MOBILE NAV: hide desktop links and keep burger only */
+@media (max-width: 1024px) {
+
+  nav.fixed .hidden.md\:flex,
+  header.fixed .hidden.md\:flex,
+  nav.fixed .hidden.md\:flex.items-center,
+  header.fixed .hidden.md\:flex.items-center,
+  nav.fixed div[class*="md:flex"],
+  header.fixed div[class*="md:flex"] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .wathba-menu-toggle {
+    display: inline-flex !important;
   }
 }
