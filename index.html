@@ -168,9 +168,189 @@
             direction: rtl;
         }
     </style>
+<!-- WATHBA_GLOBAL_UI_START -->
+<style id="wathba-global-ui-fix">
+  .wathba-top-tools {
+    position: fixed;
+    top: 18px;
+    right: 64px;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wathba-lang-btn,
+  .wathba-menu-toggle {
+    min-width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(10,10,10,0.78);
+    color: #ffffff;
+    backdrop-filter: blur(16px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+
+  .wathba-lang-btn:hover,
+  .wathba-menu-toggle:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+  }
+
+  .wathba-menu-toggle {
+    display: none;
+  }
+
+  .wathba-mobile-menu {
+    position: fixed;
+    top: 82px;
+    left: 16px;
+    right: 16px;
+    z-index: 99999;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(7,7,7,0.96);
+    border: 1px solid rgba(255,255,255,0.14);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+  }
+
+  .wathba-mobile-menu.open {
+    display: flex;
+  }
+
+  .wathba-mobile-menu a {
+    padding: 14px 16px;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .wathba-mobile-menu a:hover {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .wathba-wa-svg {
+    width: 1.25em;
+    height: 1.25em;
+    fill: currentColor;
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+
+  a[href*="wa.me"] {
+    background: #25D366 !important;
+    color: #ffffff !important;
+  }
+
+  a[href*="wa.me"]:hover {
+    filter: brightness(1.04);
+  }
+
+  a.fixed[href*="wa.me"],
+  .fixed a[href*="wa.me"] {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 2px 2px 0 #ffffff, 0 18px 45px rgba(37, 211, 102, 0.30) !important;
+  }
+
+  a.fixed[href*="wa.me"] .wathba-wa-svg,
+  .fixed a[href*="wa.me"] .wathba-wa-svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  @media (max-width: 767px) {
+    .wathba-top-tools {
+      top: 16px;
+      right: 18px;
+      gap: 8px;
+    }
+
+    .wathba-lang-btn,
+    .wathba-menu-toggle {
+      min-width: 46px;
+      height: 46px;
+    }
+
+    .wathba-menu-toggle {
+      display: inline-flex;
+    }
+
+    nav [class*="px-margin-desktop"],
+    header [class*="px-margin-desktop"],
+    nav [class*="px-16"],
+    header [class*="px-16"] {
+      padding-left: 20px !important;
+      padding-right: 120px !important;
+    }
+
+    nav [class*="text-headline-md"],
+    header [class*="text-headline-md"] {
+      font-size: 26px !important;
+      line-height: 34px !important;
+    }
+
+    a.fixed[href*="wa.me"],
+    .fixed a[href*="wa.me"] {
+      width: 58px !important;
+      height: 58px !important;
+      min-width: 58px !important;
+      right: 18px !important;
+      bottom: 18px !important;
+    }
+
+    a.fixed[href*="wa.me"] .wathba-wa-svg,
+    .fixed a[href*="wa.me"] .wathba-wa-svg {
+      width: 31px;
+      height: 31px;
+    }
+  }
+</style>
+<!-- WATHBA_GLOBAL_UI_END -->
 </head>
 
 <body class="selection:bg-primary selection:text-surface">
+<!-- WATHBA_GLOBAL_UI_START -->
+<div class="wathba-top-tools">
+  <button class="wathba-lang-btn" type="button">AR</button>
+  <button class="wathba-menu-toggle" type="button" aria-label="Open menu">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+
+<div class="wathba-mobile-menu" id="wathbaMobileMenu">
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+<!-- WATHBA_GLOBAL_UI_END -->
     <!-- Top Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
         <div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
@@ -188,13 +368,9 @@
                 </div>
             </div>
             <div class="flex items-center gap-6">
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-all duration-300">language</span>
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-all duration-300">dark_mode</span>
-                <button
-                    class="bg-primary text-surface font-label-caps text-label-caps px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform duration-200">Sign
-                    Up</button>
+                
+                
+                
             </div>
         </div>
     </nav>
@@ -229,8 +405,10 @@
                         <button
                             class="border border-primary text-primary font-headline-md text-[18px] uppercase px-10 py-4 rounded-full flex items-center gap-3 hover:bg-primary/10 transition-colors active:scale-95">
                             WhatsApp
-                            <span class="material-symbols-outlined"
-                                style="font-variation-settings: 'FILL' 1;">chat</span>
+                            <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
+  <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z"/>
+  <path d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z"/>
+</svg>
                         </button>
                     </div>
                 </div>
@@ -480,7 +658,10 @@
                 <h5 class="font-label-caps text-label-caps text-primary mb-6">Connect via WhatsApp</h5>
                 <a class="flex items-center gap-4 bg-[#25D366] text-white p-4 rounded-xl hover:opacity-90 transition-opacity"
                     href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
+  <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z"/>
+  <path d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z"/>
+</svg>
                     <div>
                         <p class="font-bold text-body-md">Order via WhatsApp</p>
                         <p class="text-[12px] opacity-80">Instant support and custom rigs</p>
@@ -502,8 +683,10 @@
     <!-- WhatsApp Floating Button -->
     <a class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl z-[100] hover:scale-110 transition-transform active:scale-95 group"
         href="#">
-        <span class="material-symbols-outlined text-white text-[32px]"
-            style="font-variation-settings: 'FILL' 1;">chat</span>
+        <svg class="wathba-wa-svg" viewBox="0 0 32 32" aria-hidden="true">
+  <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75c1.9 1.04 4.04 1.59 6.34 1.59h.01C23.2 28.84 29 23.02 29 15.86 29 8.82 23.19 3 16.02 3Zm0 23.64c-2.04 0-4.03-.55-5.77-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4a10.72 10.72 0 0 1-1.65-5.72c0-5.93 4.84-10.76 10.8-10.76 2.88 0 5.59 1.12 7.62 3.15a10.68 10.68 0 0 1 3.17 7.61c0 5.94-4.83 10.76-10.79 10.76Z"/>
+  <path d="M19.11 17.29c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 98-1 2.39s1.03 2.78 1.17 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z"/>
+</svg>
         <div
             class="absolute right-20 bg-surface-container-high text-primary px-4 py-2 rounded-lg font-label-caps text-[10px] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap border border-outline-variant/20">
             CHAT WITH US
@@ -537,6 +720,73 @@
             });
         });
     </script>
+<!-- WATHBA_GLOBAL_UI_START -->
+<script id="wathba-global-ui-js">
+  (function () {
+    const phone = "962791752349";
+    const menu = document.getElementById("wathbaMobileMenu");
+    const menuBtn = document.querySelector(".wathba-menu-toggle");
+    const langButtons = document.querySelectorAll(".wathba-lang-btn");
+
+    function applyLang(lang) {
+      localStorage.setItem("wathbaLang", lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      langButtons.forEach((btn) => {
+        btn.textContent = lang === "ar" ? "EN" : "AR";
+      });
+    }
+
+    applyLang(localStorage.getItem("wathbaLang") || "en");
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const current = localStorage.getItem("wathbaLang") || "en";
+        applyLang(current === "en" ? "ar" : "en");
+      });
+    });
+
+    if (menuBtn && menu) {
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => menu.classList.remove("open"));
+      });
+    }
+
+    document.querySelectorAll('a[href="#"]').forEach((link) => {
+      const text = link.textContent.toLowerCase();
+      if (text.includes("whatsapp") || text.includes("order") || text.includes("chat")) {
+        link.href = "https://wa.me/" + phone;
+        link.target = "_blank";
+      }
+
+      if (text.includes("browse products") || text.includes("explore products")) {
+        link.href = "products.html";
+      }
+    });
+
+    document.querySelectorAll("button").forEach((button) => {
+      const text = button.textContent.toLowerCase();
+
+      if (text.includes("whatsapp") || text.includes("order via whatsapp")) {
+        button.addEventListener("click", () => {
+          window.open("https://wa.me/" + phone, "_blank");
+        });
+      }
+
+      if (text.includes("browse products") || text.includes("explore products")) {
+        button.addEventListener("click", () => {
+          window.location.href = "products.html";
+        });
+      }
+    });
+  })();
+</script>
+<!-- WATHBA_GLOBAL_UI_END -->
 </body>
 
 </html>
+
