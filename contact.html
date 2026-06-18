@@ -138,8 +138,25 @@
             },
         }
     </script>
+
 <!-- WATHBA_GLOBAL_UI_START -->
 <style id="wathba-global-ui-fix">
+  /* ????? ???? ?????? ?? ???? ????? */
+  body:has(#home) main {
+    padding-top: 80px !important;
+  }
+
+  body:has(#home) #home {
+    min-height: calc(100vh - 80px) !important;
+    padding-top: 30px !important;
+    padding-bottom: 60px !important;
+  }
+
+  body:has(#home) #home > .grid {
+    align-items: center !important;
+  }
+
+  /* ?? ????? ??????? */
   .wathba-top-tools {
     position: fixed;
     top: 18px;
@@ -148,6 +165,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    direction: ltr !important;
   }
 
   .wathba-lang-btn,
@@ -219,6 +237,86 @@
     color: #000000;
   }
 
+  /* ????? ????? ?????? ??????? ??????? ??? */
+  body > a.fixed[href*="wa.me"],
+  main > a.fixed[href*="wa.me"],
+  body > div.fixed a[href*="wa.me"],
+  main > div.fixed a[href*="wa.me"] {
+    display: none !important;
+  }
+
+  /* ?? ?????? ?????? ??? ????? */
+  .whatsapp-widget {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    direction: rtl;
+  }
+
+  .whatsapp-label {
+    background: #333333;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+    white-space: nowrap;
+  }
+
+  .whatsapp-float {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #25D366 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    box-shadow: 0 18px 45px rgba(37, 211, 102, 0.35);
+    transition: 0.25s;
+  }
+
+  .whatsapp-float:hover {
+    transform: translateY(-4px) scale(1.04);
+  }
+
+  .whatsapp-pulse {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(37, 211, 102, 0.45);
+    animation: whatsappPulse 1.8s infinite;
+  }
+
+  .whatsapp-float svg {
+    width: 31px;
+    height: 31px;
+    fill: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes whatsappPulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+
+    100% {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+  }
+
+  /* ????? ?????? ?????? ???? ????? ???????? ??????? */
   .wathba-wa-svg {
     width: 1.25em;
     height: 1.25em;
@@ -232,30 +330,17 @@
     color: #ffffff !important;
   }
 
-  a[href*="wa.me"]:hover {
-    filter: brightness(1.04);
-  }
-
-  a.fixed[href*="wa.me"],
-  .fixed a[href*="wa.me"] {
-    width: 64px !important;
-    height: 64px !important;
-    min-width: 64px !important;
-    padding: 0 !important;
-    border-radius: 999px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 2px 2px 0 #ffffff, 0 18px 45px rgba(37, 211, 102, 0.30) !important;
-  }
-
-  a.fixed[href*="wa.me"] .wathba-wa-svg,
-  .fixed a[href*="wa.me"] .wathba-wa-svg {
-    width: 34px;
-    height: 34px;
-  }
-
   @media (max-width: 767px) {
+    body:has(#home) main {
+      padding-top: 80px !important;
+    }
+
+    body:has(#home) #home {
+      min-height: auto !important;
+      padding-top: 36px !important;
+      padding-bottom: 70px !important;
+    }
+
     .wathba-top-tools {
       top: 16px;
       right: 18px;
@@ -277,7 +362,7 @@
     nav [class*="px-16"],
     header [class*="px-16"] {
       padding-left: 20px !important;
-      padding-right: 120px !important;
+      padding-right: 126px !important;
     }
 
     nav [class*="text-headline-md"],
@@ -286,19 +371,24 @@
       line-height: 34px !important;
     }
 
-    a.fixed[href*="wa.me"],
-    .fixed a[href*="wa.me"] {
-      width: 58px !important;
-      height: 58px !important;
-      min-width: 58px !important;
-      right: 18px !important;
-      bottom: 18px !important;
+    .whatsapp-widget {
+      right: 18px;
+      bottom: 18px;
+      gap: 10px;
     }
 
-    a.fixed[href*="wa.me"] .wathba-wa-svg,
-    .fixed a[href*="wa.me"] .wathba-wa-svg {
-      width: 31px;
-      height: 31px;
+    .whatsapp-label {
+      display: none;
+    }
+
+    .whatsapp-float {
+      width: 58px;
+      height: 58px;
+    }
+
+    .whatsapp-float svg {
+      width: 29px;
+      height: 29px;
     }
   }
 </style>
@@ -320,7 +410,10 @@
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
 </div>
+
+<div id="sharedWhatsApp"></div>
 <!-- WATHBA_GLOBAL_UI_END -->
+
     <!-- TopNavBar -->
     <nav
         class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
@@ -584,47 +677,90 @@
             });
         });
     </script>
+
 <!-- WATHBA_GLOBAL_UI_START -->
 <script id="wathba-global-ui-js">
   (function () {
     const phone = "962791752349";
-    const menu = document.getElementById("wathbaMobileMenu");
+
+    const waSvg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M19.11 17.27c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.18.27-.68.87-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.3-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.42.11-.55.11-.11.27-.29.41-.43.14-.15.18-.25.27-.43.09-.18.05-.34-.02-.48-.07-.13-.59-1.43-.81-1.96-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.65 1.11 2.83c.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.58-.65 1.8-1.27.22-.63.22-1.16.15-1.27-.06-.12-.24-.18-.5-.31z"></path>
+        <path d="M16.02 3.2c-7.07 0-12.8 5.72-12.8 12.77 0 2.25.59 4.45 1.71 6.39L3.1 28.8l6.63-1.73a12.8 12.8 0 0 0 6.29 1.69h.01c7.06 0 12.79-5.72 12.79-12.77 0-3.42-1.34-6.63-3.79-9.04A12.76 12.76 0 0 0 16.02 3.2zm0 23.39h-.01a10.62 10.62 0 0 1-5.41-1.49l-.39-.23-3.94 1.03 1.05-3.84-.25-.4a10.55 10.55 0 0 1-1.63-5.61c0-5.84 4.76-10.59 10.6-10.59 2.82 0 5.47 1.09 7.47 3.08a10.5 10.5 0 0 1 3.11 7.51c0 5.84-4.76 10.59-10.6 10.59z"></path>
+      </svg>
+    `;
+
+    const mobileMenu = document.getElementById("wathbaMobileMenu");
     const menuBtn = document.querySelector(".wathba-menu-toggle");
-    const langButtons = document.querySelectorAll(".wathba-lang-btn");
+    const langBtn = document.querySelector(".wathba-lang-btn");
+
+    function getLang() {
+      return localStorage.getItem("wathbaLang") || "en";
+    }
 
     function applyLang(lang) {
       localStorage.setItem("wathbaLang", lang);
+
+      // ???: ?? ???? dir ???? ??? ?? ???? ????? Stitch
       document.documentElement.lang = lang;
-      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-      langButtons.forEach((btn) => {
-        btn.textContent = lang === "ar" ? "EN" : "AR";
+      document.documentElement.dir = "ltr";
+
+      if (langBtn) {
+        langBtn.textContent = lang === "ar" ? "EN" : "AR";
+      }
+
+      renderWhatsAppWidget();
+    }
+
+    function renderWhatsAppWidget() {
+      const lang = getLang();
+      const host = document.getElementById("sharedWhatsApp");
+      if (!host) return;
+
+      const label = lang === "ar" ? "??????" : "Chat with us";
+      const message = lang === "ar"
+        ? "?????? ???? ????????? ?? ?????? WATHBA"
+        : "Hello, I want to ask about WATHBA products";
+
+      host.innerHTML = `
+        <div class="whatsapp-widget">
+          <div class="whatsapp-label">${label}</div>
+          <a href="https://wa.me/${phone}?text=${encodeURIComponent(message)}"
+             class="whatsapp-float"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="WhatsApp">
+            <span class="whatsapp-pulse"></span>
+            ${waSvg}
+          </a>
+        </div>
+      `;
+    }
+
+    if (langBtn) {
+      langBtn.addEventListener("click", () => {
+        const nextLang = getLang() === "en" ? "ar" : "en";
+        applyLang(nextLang);
       });
     }
 
-    applyLang(localStorage.getItem("wathbaLang") || "en");
-
-    langButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const current = localStorage.getItem("wathbaLang") || "en";
-        applyLang(current === "en" ? "ar" : "en");
-      });
-    });
-
-    if (menuBtn && menu) {
+    if (menuBtn && mobileMenu) {
       menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
       });
 
-      menu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => menu.classList.remove("open"));
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => mobileMenu.classList.remove("open"));
       });
     }
 
     document.querySelectorAll('a[href="#"]').forEach((link) => {
       const text = link.textContent.toLowerCase();
+
       if (text.includes("whatsapp") || text.includes("order") || text.includes("chat")) {
         link.href = "https://wa.me/" + phone;
         link.target = "_blank";
+        link.rel = "noopener noreferrer";
       }
 
       if (text.includes("browse products") || text.includes("explore products")) {
@@ -632,25 +768,38 @@
       }
     });
 
+    document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+      link.href = link.href.replace(/wa\.me\/[^?"]+/, "wa.me/" + phone);
+
+      link.querySelectorAll(".material-symbols-outlined").forEach((icon) => {
+        if (icon.textContent.trim() === "chat") {
+          icon.outerHTML = `<span class="wathba-wa-svg">${waSvg}</span>`;
+        }
+      });
+    });
+
     document.querySelectorAll("button").forEach((button) => {
       const text = button.textContent.toLowerCase();
-
-      if (text.includes("whatsapp") || text.includes("order via whatsapp")) {
-        button.addEventListener("click", () => {
-          window.open("https://wa.me/" + phone, "_blank");
-        });
-      }
 
       if (text.includes("browse products") || text.includes("explore products")) {
         button.addEventListener("click", () => {
           window.location.href = "products.html";
         });
       }
+
+      if (text.includes("whatsapp") || text.includes("order via whatsapp")) {
+        button.addEventListener("click", () => {
+          window.open("https://wa.me/" + phone, "_blank");
+        });
+      }
     });
+
+    applyLang(getLang());
   })();
 </script>
 <!-- WATHBA_GLOBAL_UI_END -->
 </body>
 
 </html>
+
 
