@@ -32,7 +32,14 @@ function getCurrentProduct() {
     return null;
   }
 
-  return products.find((product) => product.id === productId) || products[0];
+  const product = products.find((product) => product.id === productId);
+
+  if (!product) {
+    window.location.href = "products.html";
+    return null;
+  }
+
+  return product;
 }
 function getProductFolder(product) {
   return product.image.replace("cover.webp", "");
@@ -199,6 +206,10 @@ function getProductFeatures(product, lang) {
       ]
     }
   };
+
+  if (product.id && product.id.startsWith("wooden-parallettes")) {
+    return custom["wooden-parallettes"][lang];
+  }
 
   return custom[product.id]?.[lang] || common[lang];
 }

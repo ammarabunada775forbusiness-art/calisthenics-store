@@ -21,7 +21,11 @@ const productGroups = [
     key: "handles",
     ar: "المقابض",
     en: "Handles",
-    ids: ["wooden-parallettes"]
+    ids: [
+      "wooden-parallettes-small",
+      "wooden-parallettes-medium",
+      "wooden-parallettes-large"
+    ]
   },
   {
     key: "rings",

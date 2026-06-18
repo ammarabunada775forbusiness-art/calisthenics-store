@@ -713,3 +713,43 @@ header a.font-headline-md {
     padding-top: 110px !important;
   }
 }
+
+/* =========================
+   WATHBA NAVBAR ALIGNMENT FIX
+   يخلي النافبار ثابت بنفس المكان بكل الصفحات
+========================= */
+
+@media (min-width: 1025px) {
+
+  nav.fixed>div,
+  header.fixed>div,
+  header.fixed>nav {
+    position: relative !important;
+  }
+
+  nav.fixed .hidden.md\:flex,
+  header.fixed .hidden.md\:flex,
+  nav.fixed .hidden.md\:flex.items-center,
+  header.fixed .hidden.md\:flex.items-center {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 32px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  nav.fixed a,
+  header.fixed a {
+    white-space: nowrap !important;
+  }
+
+  nav.fixed .font-headline-md,
+  header.fixed .font-headline-md {
+    flex: 0 0 auto !important;
+  }
+}

@@ -27,7 +27,7 @@ const homeTranslations = {
 
 const featuredProductIds = [
   "pull-up-bar",
-  "wooden-parallettes",
+  "wooden-parallettes-medium",
   "gymnastic-rings",
   "multi-rig",
   "dip-bars",

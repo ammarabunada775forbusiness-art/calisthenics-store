@@ -24,20 +24,15 @@ const products = [
                 ar: "عقلة جدارية",
                 en: "Wall-mounted Pull-up Bar",
                 price: null
-            },
-            {
-                ar: "عقلة باب",
-                en: "Doorway Pull-up Bar",
-                price: null
             }
         ]
     },
 
     {
-        id: "wooden-parallettes",
+        id: "wooden-parallettes-small",
         name: {
-            ar: "باراليتس خشب",
-            en: "Wooden Parallettes"
+            ar: "باراليتس خشب صغير",
+            en: "Wooden Parallettes Small"
         },
         category: {
             ar: "معدات دفع",
@@ -45,31 +40,61 @@ const products = [
         },
         price: null,
         priceLabel: {
-            ar: "السعر حسب القياس",
-            en: "Price depends on size"
+            ar: "اسأل عن السعر",
+            en: "Ask for price"
         },
         image: "assets/images/products/wooden-parallettes/cover.webp",
         description: {
-            ar: "باراليتس خشبي لتدريبات الضغط، L-sit، البلانش، الهاندستاند، وتمارين التحكم.",
-            en: "Wooden parallettes for push-ups, L-sit, planche training, handstands, and control exercises."
+            ar: "باراليتس خشب صغير مناسب لتدريبات الضغط، L-sit، وتمارين التحكم للمساحات الصغيرة.",
+            en: "Small wooden parallettes for push-ups, L-sit, control drills, and compact training spaces."
         },
-        variants: [
-            {
-                ar: "قياس صغير",
-                en: "Small Size",
-                price: null
-            },
-            {
-                ar: "قياس وسط",
-                en: "Medium Size",
-                price: null
-            },
-            {
-                ar: "قياس كبير",
-                en: "Large Size",
-                price: null
-            }
-        ]
+        variants: []
+    },
+
+    {
+        id: "wooden-parallettes-medium",
+        name: {
+            ar: "باراليتس خشب وسط",
+            en: "Wooden Parallettes Medium"
+        },
+        category: {
+            ar: "معدات دفع",
+            en: "Push Equipment"
+        },
+        price: null,
+        priceLabel: {
+            ar: "اسأل عن السعر",
+            en: "Ask for price"
+        },
+        image: "assets/images/products/wooden-parallettes/cover.webp",
+        description: {
+            ar: "باراليتس خشب وسط مناسب للهاندستاند، البلانش، L-sit، وتدريبات التوازن.",
+            en: "Medium wooden parallettes for handstands, planche work, L-sit, and balance training."
+        },
+        variants: []
+    },
+
+    {
+        id: "wooden-parallettes-large",
+        name: {
+            ar: "باراليتس خشب كبير",
+            en: "Wooden Parallettes Large"
+        },
+        category: {
+            ar: "معدات دفع",
+            en: "Push Equipment"
+        },
+        price: null,
+        priceLabel: {
+            ar: "اسأل عن السعر",
+            en: "Ask for price"
+        },
+        image: "assets/images/products/wooden-parallettes/cover.webp",
+        description: {
+            ar: "باراليتس خشب كبير مناسب للتمارين المتقدمة والثبات العالي أثناء التدريب.",
+            en: "Large wooden parallettes for advanced movements and higher stability during training."
+        },
+        variants: []
     },
 
     {
@@ -261,11 +286,6 @@ const products = [
             {
                 ar: "حلقات خشب",
                 en: "Wooden Rings",
-                price: null
-            },
-            {
-                ar: "حلقات بلاستيك",
-                en: "Plastic Rings",
                 price: null
             }
         ]
