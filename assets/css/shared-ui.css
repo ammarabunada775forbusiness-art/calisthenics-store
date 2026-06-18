@@ -933,9 +933,8 @@ html[data-wathba-lang="ar"] header.fixed a {
 }
 
 .wathba-cart-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.62);
+  display: none !important;
+  background: transparent !important;
 }
 
 .wathba-cart-panel {
