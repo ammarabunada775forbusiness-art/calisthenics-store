@@ -6,6 +6,14 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>WATHBA | Premium Equipment</title>
+    <script>
+        (function () {
+            var lang = localStorage.getItem("wathbaLang") || "ar";
+            document.documentElement.lang = lang;
+            document.documentElement.dataset.wathbaLang = lang;
+            document.documentElement.classList.add("wathba-ui-loading");
+        })();
+    </script>
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap"
@@ -187,12 +195,6 @@
                     href="about.html">About</a>
                 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
                     href="contact.html">Contact</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-all">language</span>
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-all">dark_mode</span>
             </div>
         </div>
     </nav>

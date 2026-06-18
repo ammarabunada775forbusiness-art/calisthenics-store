@@ -6,6 +6,14 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>WATHBA | Wooden Parallettes</title>
+    <script>
+        (function () {
+            var lang = localStorage.getItem("wathbaLang") || "ar";
+            document.documentElement.lang = lang;
+            document.documentElement.dataset.wathbaLang = lang;
+            document.documentElement.classList.add("wathba-ui-loading");
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap"
@@ -253,12 +261,7 @@
                 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
                     href="contact.html">Contact</a>
             </div>
-            <div class="flex items-center gap-6 text-primary">
-                <span
-                    class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300">language</span>
-                <span
-                    class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300">dark_mode</span>
-            </div>
+
         </nav>
     </header>
     <main class="pt-32 pb-24">

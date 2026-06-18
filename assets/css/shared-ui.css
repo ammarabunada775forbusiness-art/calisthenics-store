@@ -1200,3 +1200,142 @@ html[data-wathba-lang="ar"] header.fixed a {
   align-items: center !important;
   justify-content: center !important;
 }
+
+/* =========================
+   WATHBA FINAL NAV + ARABIC FIX
+========================= */
+
+/* يمنع لمحة Home / Products قبل ما تتحول عربي */
+html.wathba-ui-loading[data-wathba-lang="ar"] nav.fixed .hidden.md\:flex a,
+html.wathba-ui-loading[data-wathba-lang="ar"] header.fixed .hidden.md\:flex a,
+html.wathba-ui-loading[data-wathba-lang="ar"] .wathba-mobile-menu a {
+  opacity: 0 !important;
+}
+
+/* يخلي ظهور النافبار ناعم بعد الترجمة */
+nav.fixed .hidden.md\:flex a,
+header.fixed .hidden.md\:flex a,
+.wathba-mobile-menu a {
+  transition: opacity 0.18s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* تثبيت وتكبير اللوغو بكل الصفحات خصوصًا الرئيسية */
+nav.fixed .wathba-logo,
+header.fixed .wathba-logo,
+nav.fixed a.font-headline-md,
+header.fixed a.font-headline-md,
+nav.fixed .font-headline-md,
+header.fixed .font-headline-md {
+  font-family: "Anton", sans-serif !important;
+  font-size: 46px !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+}
+
+/* حجم روابط النافبار عربي */
+html[data-wathba-lang="ar"] nav.fixed .hidden.md\:flex a,
+html[data-wathba-lang="ar"] header.fixed .hidden.md\:flex a {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
+}
+
+/* حجم روابط النافبار إنجليزي */
+html[data-wathba-lang="en"] nav.fixed .hidden.md\:flex a,
+html[data-wathba-lang="en"] header.fixed .hidden.md\:flex a {
+  font-size: 13px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* تكبير العربي في أغلب المشروع بدون تخريب عناوين WATHBA الإنجليزية الكبيرة */
+html[data-wathba-lang="ar"] p,
+html[data-wathba-lang="ar"] li,
+html[data-wathba-lang="ar"] label,
+html[data-wathba-lang="ar"] input,
+html[data-wathba-lang="ar"] textarea,
+html[data-wathba-lang="ar"] select,
+html[data-wathba-lang="ar"] button,
+html[data-wathba-lang="ar"] a,
+html[data-wathba-lang="ar"] .font-body-md,
+html[data-wathba-lang="ar"] .font-body-lg,
+html[data-wathba-lang="ar"] .text-body-md,
+html[data-wathba-lang="ar"] .text-body-lg,
+html[data-wathba-lang="ar"] .text-on-surface-variant,
+html[data-wathba-lang="ar"] .product-card p,
+html[data-wathba-lang="ar"] .home-product-card p,
+html[data-wathba-lang="ar"] .wathba-footer-text,
+html[data-wathba-lang="ar"] .wathba-footer-list a,
+html[data-wathba-lang="ar"] .wathba-footer-contact p {
+  font-size: 18px !important;
+  line-height: 1.9 !important;
+}
+
+/* النصوص الصغيرة جدًا مثل التصنيف، الفلاتر، الأزرار */
+html[data-wathba-lang="ar"] .font-label-caps,
+html[data-wathba-lang="ar"] .text-label-caps,
+html[data-wathba-lang="ar"] .category,
+html[data-wathba-lang="ar"] .product-card span,
+html[data-wathba-lang="ar"] .home-product-card span,
+html[data-wathba-lang="ar"] .wathba-footer-title,
+html[data-wathba-lang="ar"] .wathba-lang-btn,
+html[data-wathba-lang="ar"] .wathba-cart-added-bubble {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
+}
+
+/* عناوين المنتجات بالعربي */
+html[data-wathba-lang="ar"] .product-card h3,
+html[data-wathba-lang="ar"] .home-product-card h3,
+html[data-wathba-lang="ar"] #productDetailsRoot h1,
+html[data-wathba-lang="ar"] #relatedProductsRoot h2 {
+  font-size: clamp(30px, 3.3vw, 46px) !important;
+  line-height: 1.15 !important;
+}
+
+/* لا تكبّر عناوين العرض الإنجليزية الكبيرة */
+html[data-wathba-lang="ar"] .font-display-hero,
+html[data-wathba-lang="ar"] .text-display-hero,
+html[data-wathba-lang="ar"] .hero-text-stroke {
+  font-family: "Anton", sans-serif !important;
+}
+
+/* موبايل */
+@media (max-width: 1024px) {
+
+  nav.fixed .wathba-logo,
+  header.fixed .wathba-logo,
+  nav.fixed a.font-headline-md,
+  header.fixed a.font-headline-md,
+  nav.fixed .font-headline-md,
+  header.fixed .font-headline-md {
+    font-size: 34px !important;
+  }
+
+  html[data-wathba-lang="ar"] .wathba-mobile-menu a {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0 !important;
+  }
+
+  html[data-wathba-lang="ar"] p,
+  html[data-wathba-lang="ar"] li,
+  html[data-wathba-lang="ar"] label,
+  html[data-wathba-lang="ar"] button,
+  html[data-wathba-lang="ar"] a,
+  html[data-wathba-lang="ar"] .font-body-md,
+  html[data-wathba-lang="ar"] .font-body-lg,
+  html[data-wathba-lang="ar"] .text-body-md,
+  html[data-wathba-lang="ar"] .text-body-lg {
+    font-size: 17px !important;
+    line-height: 1.9 !important;
+  }
+}

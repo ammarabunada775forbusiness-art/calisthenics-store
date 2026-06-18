@@ -6,6 +6,14 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>WATHBA | Premium Calisthenics Equipment</title>
+    <script>
+        (function () {
+            var lang = localStorage.getItem("wathbaLang") || "ar";
+            document.documentElement.lang = lang;
+            document.documentElement.dataset.wathbaLang = lang;
+            document.documentElement.classList.add("wathba-ui-loading");
+        })();
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap"
         rel="stylesheet" />
@@ -283,7 +291,9 @@
     <nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
         <div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
             <div class="flex items-center gap-12">
-                <a class="font-headline-md text-headline-md uppercase tracking-tighter text-primary" href="#">WATHBA</a>
+                <div class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">
+                    WATHBA
+                </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1"
                         href="index.html">Home</a>
@@ -296,10 +306,6 @@
                 </div>
             </div>
             <div class="flex items-center gap-6">
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-all duration-300">language</span>
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-all duration-300">dark_mode</span>
                 <button
                     class="bg-primary text-surface font-label-caps text-label-caps px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform duration-200">Sign
                     Up</button>

@@ -58,7 +58,7 @@ const WATHBA_WA_SVG = `
 `;
 
 function wathbaGetLang() {
-  return localStorage.getItem("wathbaLang") || "en";
+  return localStorage.getItem("wathbaLang") || "ar";
 }
 
 function wathbaT(key) {
@@ -116,6 +116,8 @@ function wathbaApplyLanguage(lang) {
   wathbaNormalizeLinks();
   wathbaSetActiveLinks();
   wathbaNormalizeLogo();
+  document.documentElement.classList.remove("wathba-ui-loading");
+  document.documentElement.classList.add("wathba-ui-ready");
 
   document.dispatchEvent(
     new CustomEvent("wathba:langchange", {
@@ -355,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 (function () {
   function getLang() {
-    return localStorage.getItem("wathbaLang") || "en";
+    returnlocalStorage.getItem("wathbaLang") || "ar";
   }
 
   function t(key) {
@@ -504,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const PHONE = "962791752349";
 
   function lang() {
-    return localStorage.getItem("wathbaLang") || "en";
+    return localStorage.getItem("wathbaLang") || "ar";
   }
 
   function txt(ar, en) {

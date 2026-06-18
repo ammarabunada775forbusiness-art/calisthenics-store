@@ -6,6 +6,14 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>About WATHBA | Elite Calisthenics Engineering</title>
+  <script>
+    (function () {
+      var lang = localStorage.getItem("wathbaLang") || "ar";
+      document.documentElement.lang = lang;
+      document.documentElement.dataset.wathbaLang = lang;
+      document.documentElement.classList.add("wathba-ui-loading");
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
