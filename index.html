@@ -503,9 +503,9 @@
                 },
 
                 ar: {
-                    heroMini: "أداء بمعيار جديد",
-                    heroLine1: "مصممة",
-                    heroLine2: "للقوة",
+                    heroLine1: "ENGINEERED",
+                    heroLine2: "FOR POWER",
+                    heroArabic: "مصمم للقوة",
                     heroArabic: "معدات كاليسثنكس احترافية",
                     heroText: "معدات كاليسثنكس مختارة للاعبين الذين يريدون جودة عالية، ثبات قوي، وتجربة تدريب عملية.",
                     browse: "تصفح المنتجات",
@@ -518,7 +518,7 @@
                     finishLabel: "التشطيب",
                     finishValue: "قبضة طبيعية",
 
-                    standardTitle: "معيار<br />WATHBA<br />للجودة",
+                    standardTitle: "THE<br />WATHBA<br />STANDARD",
                     qualityTitle: "جودة التصنيع",
                     qualityText: "نختار خامات قوية وتصميمات عملية لتناسب التدريب اليومي والاستخدام الطويل.",
                     designTitle: "تصميم عملي",
@@ -528,7 +528,7 @@
                     trusted: "اختيار الرياضيين الجادين",
 
                     ctaMini: "محتاج مساعدة بالاختيار؟",
-                    ctaTitle: "جهّز مكان تدريبك",
+                    ctaTitle: "BUILD YOUR SETUP",
                     ctaText: "احكِ لنا مستواك، المساحة المتوفرة، وهدفك، ونساعدك تختار معدات الكاليستنكس المناسبة عبر واتساب.",
                     ctaBrowse: "تصفح المنتجات",
                     ctaWhatsapp: "راسلنا واتساب"
@@ -620,6 +620,70 @@
                     document.querySelector("#home .md\\:col-span-5")?.classList.remove("wathba-ar-text");
                     document.querySelector("#about")?.classList.remove("wathba-ar-text");
                     document.querySelector(".wathba-final-cta")?.classList.remove("wathba-ar-text");
+                }
+                /* Static Product Grid Section Translation */
+                const oldProductsSection = document.querySelector("#products");
+
+                if (oldProductsSection) {
+                    const miniTitle = oldProductsSection.querySelector(".flex.justify-between span.text-primary");
+                    const sideText = oldProductsSection.querySelector(".hidden.md\\:block span");
+
+                    if (miniTitle) {
+                        miniTitle.textContent = lang === "ar" ? "مجموعة مختارة" : "Curated Collection";
+                    }
+
+                    if (sideText) {
+                        sideText.textContent =
+                            lang === "ar"
+                                ? "معدات مختارة بعناية لتدريب قوي وثابت واستخدام طويل."
+                                : "Tested by elite athletes to ensure peak performance and durability.";
+                    }
+
+                    const smallCards = oldProductsSection.querySelectorAll(".glass-panel");
+
+                    const cardTranslations = {
+                        ar: [
+                            {
+                                desc: "ثبات عالي لتدريبات الديبس والمهارات المتقدمة.",
+                                action: "استكشف أكثر"
+                            },
+                            {
+                                desc: "طلاء مقاوم للعوامل الخارجية وتجهيزات قوية.",
+                                action: "استكشف أكثر"
+                            },
+                            {
+                                desc: "حبال مقاومة تساعدك في التدرج والإحماء والتمرين.",
+                                action: "استكشف أكثر"
+                            }
+                        ],
+                        en: [
+                            {
+                                desc: "Maximum stability for advanced levers.",
+                                action: "Explore More"
+                            },
+                            {
+                                desc: "Weather-proof coating for outdoor mastery.",
+                                action: "Explore More"
+                            },
+                            {
+                                desc: "Premium latex for progressive load.",
+                                action: "Explore More"
+                            }
+                        ]
+                    };
+
+                    smallCards.forEach((card, index) => {
+                        const desc = card.querySelector("p");
+                        const action = card.querySelector(".font-label-caps.text-label-caps.text-primary");
+
+                        if (desc && cardTranslations[lang][index]) {
+                            desc.textContent = cardTranslations[lang][index].desc;
+                        }
+
+                        if (action && cardTranslations[lang][index]) {
+                            action.textContent = cardTranslations[lang][index].action;
+                        }
+                    });
                 }
             }
 
