@@ -521,6 +521,14 @@
                     capacityValue: "200KG LIMIT",
                     finishLabel: "FINISH",
                     finishValue: "Natural Grip",
+                    gripLabel: "GRIP DIAMETER",
+                    gripValue: "38MM FEEL",
+                    baseLabel: "BASE",
+                    baseValue: "Non-slip Feet",
+                    useLabel: "USE",
+                    useValue: "Home / Outdoor",
+                    supportLabel: "ORDER SUPPORT",
+                    supportValue: "WhatsApp Quote",
 
                     standardTitle: "THE<br />WATHBA<br />STANDARD",
                     qualityTitle: "Build Quality",
@@ -553,6 +561,14 @@
                     capacityValue: "حتى 200 كغم",
                     finishLabel: "التشطيب",
                     finishValue: "قبضة طبيعية",
+                    gripLabel: "قطر القبضة",
+                    gripValue: "إحساس 38 مم",
+                    baseLabel: "القاعدة",
+                    baseValue: "أقدام مانعة للانزلاق",
+                    useLabel: "الاستخدام",
+                    useValue: "للبيت / الخارج",
+                    supportLabel: "دعم الطلب",
+                    supportValue: "عرض عبر واتساب",
 
                     standardTitle: "THE<br />WATHBA<br />STANDARD",
                     qualityTitle: "جودة التصنيع",
@@ -603,19 +619,26 @@
                     heroButtons[1].childNodes[0].textContent = t.whatsapp + " ";
                 }
 
-                const dataCards = document.querySelectorAll("#home .glass-panel");
-                if (dataCards[0]) {
-                    dataCards[0].querySelector("span:first-child").textContent = t.materialLabel;
-                    dataCards[0].querySelector("span:last-child").textContent = t.materialValue;
-                }
-                if (dataCards[1]) {
-                    dataCards[1].querySelector("span:first-child").textContent = t.capacityLabel;
-                    dataCards[1].querySelector("span:last-child").textContent = t.capacityValue;
-                }
-                if (dataCards[2]) {
-                    dataCards[2].querySelector("span:first-child").textContent = t.finishLabel;
-                    dataCards[2].querySelector("span:last-child").textContent = t.finishValue;
-                }
+                const statCards = [
+                    [".hero-stat-material", "materialLabel", "materialValue"],
+                    [".hero-stat-capacity", "capacityLabel", "capacityValue"],
+                    [".hero-stat-finish", "finishLabel", "finishValue"],
+                    [".hero-stat-grip", "gripLabel", "gripValue"],
+                    [".hero-stat-base", "baseLabel", "baseValue"],
+                    [".hero-stat-use", "useLabel", "useValue"],
+                    [".hero-stat-support", "supportLabel", "supportValue"]
+                ];
+
+                statCards.forEach(([selector, labelKey, valueKey]) => {
+                    const card = document.querySelector(`#home ${selector}`);
+                    if (!card) return;
+
+                    const label = card.querySelector("span:first-child");
+                    const value = card.querySelector("span:last-child");
+
+                    if (label) label.textContent = t[labelKey];
+                    if (value) value.textContent = t[valueKey];
+                });
 
                 setHTML("#about h2", t.standardTitle);
 
