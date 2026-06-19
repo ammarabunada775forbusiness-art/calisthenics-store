@@ -1441,3 +1441,290 @@ html[dir="rtl"] .wathba-footer-bottom p {
   direction: rtl !important;
   text-align: right !important;
 }
+
+/* =====================================================
+   FINAL FIX: Footer + About CTA alignment in Arabic
+===================================================== */
+
+/* Keep footer visual grid stable even in Arabic */
+html[dir="rtl"] .wathba-site-footer,
+html[dir="rtl"] .wathba-site-footer-grid {
+  direction: ltr !important;
+}
+
+/* Brand block stays centered, not pushed hard right */
+html[dir="rtl"] .wathba-footer-brand {
+  direction: rtl !important;
+  text-align: center !important;
+}
+
+html[dir="rtl"] .wathba-footer-logo {
+  direction: ltr !important;
+  text-align: center !important;
+  unicode-bidi: isolate !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+html[dir="rtl"] .wathba-footer-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+html[dir="rtl"] .wathba-footer-whatsapp {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Footer columns can stay Arabic/right aligned */
+html[dir="rtl"] .wathba-footer-col,
+html[dir="rtl"] .wathba-footer-contact {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] .wathba-footer-bottom {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .wathba-footer-bottom p {
+  text-align: right !important;
+}
+
+/* About page final CTA must stay centered */
+html[dir="rtl"] body:has(#wathba-about-page-translation) main section:nth-of-type(6),
+html[dir="rtl"] body:has(#wathba-about-page-translation) main section:nth-of-type(6) h2,
+html[dir="rtl"] body:has(#wathba-about-page-translation) main section:nth-of-type(6) p,
+html[dir="rtl"] body:has(#wathba-about-page-translation) main section:nth-of-type(6) div {
+  text-align: center !important;
+}
+
+html[dir="rtl"] body:has(#wathba-about-page-translation) main section:nth-of-type(6) p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+html[dir="rtl"] body:has(#wathba-about-page-translation) main section:nth-of-type(6) .flex {
+  justify-content: center !important;
+}
+
+
+/* =====================================================
+   CART DESIGN V1: smaller, cleaner, mobile-first
+===================================================== */
+
+.wathba-cart-panel {
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55) !important;
+}
+
+.wathba-cart-header strong {
+  font-family: "Anton", sans-serif !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.wathba-cart-header h3 {
+  margin: 8px 0 2px !important;
+}
+
+.wathba-cart-header p {
+  margin: 0 !important;
+  color: #c4c7c8 !important;
+}
+
+.wathba-cart-item {
+  position: relative !important;
+}
+
+.wathba-cart-item strong {
+  display: inline-flex !important;
+  width: fit-content !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 999px !important;
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+
+.wathba-cart-controls button {
+  transition: 0.2s ease !important;
+}
+
+.wathba-cart-controls button:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Mobile cart: bottom sheet instead of huge side drawer */
+@media (max-width: 768px) {
+  .wathba-cart-panel {
+    top: auto !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    width: auto !important;
+    height: min(78vh, 620px) !important;
+    border-radius: 28px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.14) !important;
+    transform: translateY(115%) !important;
+    overflow: hidden !important;
+  }
+
+  .wathba-cart-drawer.open .wathba-cart-panel {
+    transform: translateY(0) !important;
+  }
+
+  .wathba-cart-header {
+    padding: 16px 16px 12px !important;
+    align-items: center !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .wathba-cart-header strong {
+    font-size: 22px !important;
+  }
+
+  .wathba-cart-header h3 {
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+    margin: 6px 0 2px !important;
+  }
+
+  .wathba-cart-header p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  .wathba-cart-close {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    font-size: 24px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .wathba-cart-body {
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+
+  .wathba-cart-item {
+    padding: 13px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(180deg, #171717, #111111) !important;
+  }
+
+  .wathba-cart-item h4 {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .wathba-cart-item p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+    color: rgba(229, 226, 225, 0.72) !important;
+  }
+
+  .wathba-cart-item strong {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+  }
+
+  .wathba-cart-controls {
+    margin-top: 12px !important;
+    padding: 6px !important;
+    border-radius: 999px !important;
+    background: #0b0b0b !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+  }
+
+  .wathba-cart-controls button {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    font-size: 15px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .wathba-cart-controls b {
+    min-width: 26px !important;
+    text-align: center !important;
+    font-size: 15px !important;
+  }
+
+  .wathba-cart-controls [data-cart-remove] {
+    width: auto !important;
+    min-width: auto !important;
+    padding: 0 14px !important;
+    margin-inline-start: auto !important;
+    color: #ffb4ab !important;
+  }
+
+  .wathba-cart-footer {
+    padding: 12px 14px 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .wathba-cart-footer label {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    display: block !important;
+    margin-bottom: 8px !important;
+  }
+
+  .wathba-cart-footer textarea {
+    height: 76px !important;
+    min-height: 76px !important;
+    border-radius: 18px !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin-top: 0 !important;
+  }
+
+  .wathba-cart-order {
+    min-height: 50px !important;
+    margin-top: 10px !important;
+    font-size: 15px !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.25) !important;
+  }
+
+  .wathba-cart-clear {
+    margin-top: 8px !important;
+    width: 100% !important;
+    height: 42px !important;
+    justify-content: center !important;
+    font-size: 13px !important;
+    background: transparent !important;
+  }
+
+  html[dir="rtl"] .wathba-cart-panel,
+  html[dir="rtl"] .wathba-cart-item,
+  html[dir="rtl"] .wathba-cart-footer {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  html[dir="rtl"] .wathba-cart-header {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  html[dir="rtl"] .wathba-cart-header strong {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+  }
+}

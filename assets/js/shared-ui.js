@@ -681,8 +681,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     saveCart(items);
-
-    saveCart(items);
     showCartAddFeedback(quantity);
   }
 
